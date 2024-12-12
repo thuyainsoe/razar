@@ -17,10 +17,10 @@ interface Props {
           >Country</th
         >
         <th class="p-2 sm:p-3 text-sm sm:text-base border border-primary"
-          >Name</th
+          >Ingame Name</th
         >
         <th class="p-2 sm:p-3 text-sm sm:text-base border border-primary"
-          >Ingame Name</th
+          >Name</th
         >
         <th class="p-2 sm:p-3 text-sm sm:text-base border border-primary"
           >Team</th
@@ -33,11 +33,11 @@ interface Props {
         playerData.map((player, index) => (
           <tr class="hover:bg-gray-800 transition-all">
             <td class="p-2 sm:p-3 text-lg sm:text-xl font-semibold">🇲🇲</td>
-            <td class="p-2 sm:p-3 text-white text-sm sm:text-base font-semibold">
-              {player.name}
-            </td>
             <td class="p-2 sm:p-3 text-sm sm:text-base font-semibold text-highlight">
               {player.ingame_name}
+            </td>
+            <td class="p-2 sm:p-3 text-white text-sm sm:text-base font-semibold">
+              {player.name}
             </td>
             <td class="p-2 sm:p-3 text-sm sm:text-base font-semibold flex items-center gap-2">
               {player.team && (
@@ -59,3 +59,5 @@ interface Props {
     </tbody>
   </table>
 </div>
+
+<script></script>

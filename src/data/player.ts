@@ -11,7 +11,7 @@ export type PlayerData = {
   };
 };
 
-export const playerData: PlayerData[] = [
+const myanmarPlayer = [
   {
     name: "Htoo Aung Thit",
     ingame_name: "Alitaaa",
@@ -664,3 +664,5 @@ export const playerData: PlayerData[] = [
     },
   },
 ];
+
+export const playerData: PlayerData[] = [...myanmarPlayer];
