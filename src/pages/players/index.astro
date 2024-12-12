@@ -1,0 +1,59 @@
+---
+import PlayerTable from "../../components/PlayerTable.astro";
+import Layout from "../../layouts/Layout.astro";
+import { playerData } from "../../data/player";
+---
+
+<Layout>
+  <div
+    class="flex flex-col md:flex-row w-full main-container py-[20px] md:py-[50px]"
+  >
+    <!-- Left Sidebar for Country Filter -->
+    <aside class="w-full md:w-1/4 bg-gray-900 p-4">
+      <h2 class="text-xl font-bold text-white mb-4">Filter by Country</h2>
+      <ul class="space-y-2">
+        <li>
+          <button
+            class="w-full p-2 text-left bg-primary text-white rounded-md hover:bg-opacity-80 transition"
+          >
+            🇲🇲 Myanmar
+          </button>
+        </li>
+        <li>
+          <button
+            class="w-full p-2 text-left bg-primary text-white rounded-md hover:bg-opacity-80 transition"
+          >
+            🇵🇭 Philippines
+          </button>
+        </li>
+        <li>
+          <button
+            class="w-full p-2 text-left bg-primary text-white rounded-md hover:bg-opacity-80 transition"
+          >
+            🇮🇩 Indonesia
+          </button>
+        </li>
+        <li>
+          <button
+            class="w-full p-2 text-left bg-primary text-white rounded-md hover:bg-opacity-80 transition"
+          >
+            🇲🇾 Malaysia
+          </button>
+        </li>
+        <li>
+          <button
+            class="w-full p-2 text-left bg-primary text-white rounded-md hover:bg-opacity-80 transition"
+          >
+            🇹🇭 Thailand
+          </button>
+        </li>
+        <!-- Add more country filters as needed -->
+      </ul>
+    </aside>
+
+    <!-- Right Side Table -->
+    <div class="w-full md:w-3/4 overflow-x-auto">
+      <PlayerTable playerData={playerData} />
+    </div>
+  </div>
+</Layout>

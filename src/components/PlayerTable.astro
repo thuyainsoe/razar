@@ -1,0 +1,61 @@
+---
+import { Image } from "astro:assets";
+import type { PlayerData } from "../data/player";
+
+const { playerData } = Astro.props;
+
+interface Props {
+  playerData: PlayerData[];
+}
+---
+
+<div class="overflow-x-auto w-full text-nowrap">
+  <table class="table-auto w-full border-collapse border border-primary">
+    <thead>
+      <tr class="bg-primary text-left">
+        <th class="p-2 sm:p-3 text-sm sm:text-base border border-primary"
+          >Country</th
+        >
+        <th class="p-2 sm:p-3 text-sm sm:text-base border border-primary"
+          >Name</th
+        >
+        <th class="p-2 sm:p-3 text-sm sm:text-base border border-primary"
+          >Ingame Name</th
+        >
+        <th class="p-2 sm:p-3 text-sm sm:text-base border border-primary"
+          >Team</th
+        >
+      </tr>
+    </thead>
+
+    <tbody>
+      {
+        playerData.map((player, index) => (
+          <tr class="hover:bg-gray-800 transition-all">
+            <td class="p-2 sm:p-3 text-lg sm:text-xl font-semibold">🇲🇲</td>
+            <td class="p-2 sm:p-3 text-white text-sm sm:text-base font-semibold">
+              {player.name}
+            </td>
+            <td class="p-2 sm:p-3 text-sm sm:text-base font-semibold text-highlight">
+              {player.ingame_name}
+            </td>
+            <td class="p-2 sm:p-3 text-sm sm:text-base font-semibold flex items-center gap-2">
+              {player.team && (
+                <>
+                  <Image
+                    src={player.team.logo}
+                    width={24}
+                    height={24}
+                    alt={`${player.team.name} logo`}
+                    class="rounded-full"
+                  />
+                  <span class="whitespace-nowrap">{player.team.name}</span>
+                </>
+              )}
+            </td>
+          </tr>
+        ))
+      }
+    </tbody>
+  </table>
+</div>
