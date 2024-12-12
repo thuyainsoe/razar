@@ -13,6 +13,8 @@ interface Props {
   <table class="table-auto w-full border-collapse border border-primary">
     <thead>
       <tr class="bg-primary text-left">
+        <!-- <th class="p-2 sm:p-3 text-sm sm:text-base border border-primary">No</th
+        > -->
         <th class="p-2 sm:p-3 text-sm sm:text-base border border-primary"
           >Country</th
         >
@@ -32,7 +34,10 @@ interface Props {
       {
         playerData.map((player, index) => (
           <tr class="hover:bg-gray-800 transition-all">
-            <td class="p-2 sm:p-3 text-lg sm:text-xl font-semibold">🇲🇲</td>
+            {/* <td class="p-2 sm:p-3 text-sm">{index + 1}</td> */}
+            <td class="p-2 sm:p-3 text-lg sm:text-xl font-semibold">
+              {player.country.logo}
+            </td>
             <td class="p-2 sm:p-3 text-sm sm:text-base font-semibold text-highlight">
               {player.ingame_name}
             </td>
