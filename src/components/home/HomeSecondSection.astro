@@ -1,0 +1,278 @@
+---
+import { Image } from "astro:assets";
+const playerData = [
+  {
+    name: "Htoo Aung Thit",
+    ingame_name: "Alita",
+    team: {
+      name: "AI Esport",
+      logo: "/images/myanmar/team_icon/ai.png",
+    },
+    country: {
+      name: "Myanmar",
+      logo: "🇲🇲",
+    },
+  },
+  {
+    name: "Phone Myint Kyi",
+    ingame_name: "Ardam",
+    team: null,
+    country: {
+      name: "Myanmar",
+      logo: "🇲🇲",
+    },
+  },
+  {
+    name: "Min Swan Kon",
+    ingame_name: "Beni",
+    team: {
+      name: "Falcon",
+      logo: "/images/myanmar/team_icon/falcon.png",
+    },
+    country: {
+      name: "Myanmar",
+      logo: "🇲🇲",
+    },
+  },
+  {
+    name: "Kyaw Khaung Htut",
+    ingame_name: "Benno",
+    team: {
+      name: "Falcon",
+      logo: "/images/myanmar/team_icon/falcon.png",
+    },
+    country: {
+      name: "Myanmar",
+      logo: "🇲🇲",
+    },
+  },
+  {
+    name: "Tain Yan Lin",
+    ingame_name: "Bird",
+    team: {
+      name: "Zino Esports",
+      logo: "/images/myanmar/team_icon/zino.png",
+    },
+    country: {
+      name: "Myanmar",
+      logo: "🇲🇲",
+    },
+  },
+  {
+    name: "	Thet Naing Zaw",
+    ingame_name: "Black",
+    team: {
+      name: "AI Esport",
+      logo: "/images/myanmar/team_icon/ai.png",
+    },
+    country: {
+      name: "Myanmar",
+      logo: "🇲🇲",
+    },
+  },
+  {
+    name: "	Htoo Htet Kyaw",
+    ingame_name: "Blank",
+    team: null,
+    country: {
+      name: "Myanmar",
+      logo: "🇲🇲",
+    },
+  },
+  {
+    name: "Kyaw Thuya",
+    ingame_name: "Blink",
+    team: {
+      name: "Burmese Ghouls",
+      logo: "/images/myanmar/team_icon/bg.png",
+    },
+    country: {
+      name: "Myanmar",
+      logo: "🇲🇲",
+    },
+  },
+  {
+    name: "Yan Moe Aung",
+    ingame_name: "Bloodkikaka",
+    team: {
+      name: "Burmese Ghouls",
+      logo: "/images/myanmar/team_icon/bg.png",
+    },
+    country: {
+      name: "Myanmar",
+      logo: "🇲🇲",
+    },
+  },
+  {
+    name: "Thiha Kyaw",
+    ingame_name: "Carbon",
+    team: {
+      name: "Blade Violet",
+      logo: "/images/myanmar/team_icon/bv.png",
+    },
+    country: {
+      name: "Myanmar",
+      logo: "🇲🇲",
+    },
+  },
+  {
+    name: "Hsu Yamin Htet",
+    ingame_name: "Cassie",
+    team: null,
+    country: {
+      name: "Myanmar",
+      logo: "🇲🇲",
+    },
+  },
+  {
+    name: "Wint Yadanar Linn",
+    ingame_name: "Cko",
+    team: {
+      name: "Blade Angels",
+      logo: "/images/myanmar/team_icon/ba.png",
+    },
+    country: {
+      name: "Myanmar",
+      logo: "🇲🇲",
+    },
+  },
+  {
+    name: "Thuya Aung",
+    ingame_name: "DK",
+    team: null,
+    country: {
+      name: "Myanmar",
+      logo: "🇲🇲",
+    },
+  },
+  {
+    name: "Kaung Sett",
+    ingame_name: "Daxx",
+    team: {
+      name: "Falcon Esports",
+      logo: "/images/myanmar/team_icon/falcon.png",
+    },
+    country: {
+      name: "Myanmar",
+      logo: "🇲🇲",
+    },
+  },
+];
+---
+
+<div
+  class="w-full main-container grid grid-cols-4 gap-5 items-start py-8 md:py-[50px]"
+>
+  <!-- Left Section -->
+  <div class="col-[1/5] lg:col-[1/4] w-full">
+    <section id="stats" class="text-text min-h-[50vh] w-full">
+      <div class="flex flex-row items-center justify-between w-full mb-6">
+        <h2 class="font-heading text-2xl sm:text-3xl">Players In Myanmar</h2>
+        <a
+          href="#"
+          class="text-text text-xs uppercase py-1 px-2 rounded hover:bg-orange-500 transition-all"
+        >
+          See More →
+        </a>
+      </div>
+
+      <!-- Scrollable Table Wrapper -->
+      <div class="overflow-x-auto w-full text-nowrap">
+        <table class="table-auto w-full border-collapse border border-primary">
+          <thead>
+            <tr class="bg-primary text-left">
+              <th class="p-2 sm:p-3 text-sm sm:text-base border border-primary"
+                >Country</th
+              >
+              <th class="p-2 sm:p-3 text-sm sm:text-base border border-primary"
+                >Name</th
+              >
+              <th class="p-2 sm:p-3 text-sm sm:text-base border border-primary"
+                >Ingame Name</th
+              >
+              <th class="p-2 sm:p-3 text-sm sm:text-base border border-primary"
+                >Team</th
+              >
+            </tr>
+          </thead>
+
+          <tbody>
+            {
+              playerData.slice(0, 10).map((player, index) => (
+                <tr class="hover:bg-gray-800 transition-all">
+                  <td class="p-2 sm:p-3 text-lg sm:text-xl font-semibold">
+                    🇲🇲
+                  </td>
+                  <td class="p-2 sm:p-3 text-white text-sm sm:text-base font-semibold">
+                    {player.name}
+                  </td>
+                  <td class="p-2 sm:p-3 text-sm sm:text-base font-semibold text-highlight">
+                    {player.ingame_name}
+                  </td>
+                  <td class="p-2 sm:p-3 text-sm sm:text-base font-semibold flex items-center gap-2">
+                    {player.team && (
+                      <>
+                        <Image
+                          src={player.team.logo}
+                          width={24}
+                          height={24}
+                          alt={`${player.team.name} logo`}
+                          class="rounded-full"
+                        />
+                        <span class="whitespace-nowrap">
+                          {player.team.name}
+                        </span>
+                      </>
+                    )}
+                  </td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+
+  <!-- Right Section (Optional) -->
+  <div class="col-[1/5] lg:col-[4/5] w-full">
+    <h2 class="font-heading text-2xl sm:text-3xl mb-6">Recent Blogs</h2>
+    <div class="flex flex-col gap-5">
+      {
+        [
+          {
+            title: "Master Hero Skills Like a Pro",
+            description:
+              "Learn the best skills to master heroes and dominate the arena.",
+            link: "/blog/master-hero-skills",
+          },
+          {
+            title: "Top 5 Hero Counters You Must Know",
+            description:
+              "Counter the strongest heroes with our detailed guide.",
+            link: "/blog/hero-counters",
+          },
+          {
+            title: "The Rise of Mobile Esports",
+            description:
+              "How Mobile Legends is shaping the future of mobile esports.",
+            link: "/blog/mobile-esports-rise",
+          },
+        ].map((blog, index) => (
+          <div class="bg-gray-800 p-4 rounded-md shadow-md">
+            <h3 class="font-heading text-lg sm:text-xl mb-2">{blog.title}</h3>
+            <p class="text-sm sm:text-base text-gray-400 mb-4">
+              {blog.description}
+            </p>
+            <a
+              href={blog.link}
+              class="text-highlight text-sm sm:text-base font-semibold hover:underline"
+            >
+              Read More →
+            </a>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</div>

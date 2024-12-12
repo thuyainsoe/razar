@@ -1,0 +1,64 @@
+<section class="my-8 sm:my-12 bg-gray-900">
+  <div class="main-container">
+    <!-- Title -->
+    <h2 class="font-heading text-2xl sm:text-3xl text-center sm:text-left mb-6">
+      Upcoming Matches
+    </h2>
+
+    <!-- Matches Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+      {[
+        {
+          date: "Dec 15, 2024",
+          match: "Team Alpha vs Team Bravo",
+          time: "18:00 UTC",
+        },
+        {
+          date: "Dec 16, 2024",
+          match: "Team Echo vs Team Delta",
+          time: "20:00 UTC",
+        },
+        {
+          date: "Dec 17, 2024",
+          match: "Team Omega vs Team Sigma",
+          time: "22:00 UTC",
+        },
+        {
+          date: "Dec 18, 2024",
+          match: "Team Beta vs Team Zeta",
+          time: "21:00 UTC",
+        },
+        {
+          date: "Dec 19, 2024",
+          match: "Team Delta vs Team Theta",
+          time: "19:00 UTC",
+        },
+      ].map((match, index) => (
+        <div 
+          class="flex flex-col sm:flex-row items-start sm:items-center bg-gray-800 p-4 sm:p-6 rounded-lg shadow-md transform transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg"
+        >
+          <!-- Date -->
+          <span 
+            class="block text-gray-400 mb-2 sm:mb-0 sm:mr-4 text-xs sm:text-sm w-full sm:w-auto"
+          >
+            {match.date}
+          </span>
+
+          <!-- Match Info -->
+          <span 
+            class="flex-1 font-normal text-sm sm:text-base text-left"
+          >
+            {match.match}
+          </span>
+
+          <!-- Time -->
+          <span 
+            class="text-highlight text-sm sm:text-base font-semibold mt-2 sm:mt-0"
+          >
+            {match.time}
+          </span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
