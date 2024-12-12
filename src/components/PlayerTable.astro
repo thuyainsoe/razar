@@ -38,8 +38,12 @@ interface Props {
             <td class="p-2 sm:p-3 text-lg sm:text-xl font-semibold">
               {player.country.logo}
             </td>
-            <td class="p-2 sm:p-3 text-sm sm:text-base font-semibold text-highlight">
-              {player.ingame_name}
+            <td class="p-2 sm:p-3 text-sm sm:text-base font-semibold text-highlight cursor-pointer">
+              {player.slug ? (
+                <a href={`/players/${player.slug}`}>{player.ingame_name}</a>
+              ) : (
+                player.ingame_name
+              )}
             </td>
             <td class="p-2 sm:p-3 text-white text-sm sm:text-base font-semibold">
               {player.name}

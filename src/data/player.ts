@@ -9,6 +9,7 @@ export type PlayerData = {
     name: string;
     logo: string;
   };
+  slug?: string;
 };
 
 const myanmarPlayer = [
@@ -23,6 +24,7 @@ const myanmarPlayer = [
       name: "Myanmar",
       logo: "🇲🇲",
     },
+    slug: "alita-mlbb-myanmar",
   },
   {
     name: "Phone Myint Kyi",
@@ -32,6 +34,7 @@ const myanmarPlayer = [
       name: "Myanmar",
       logo: "🇲🇲",
     },
+    slug: "ardam-mlbb-myanmar",
   },
   {
     name: "Min Swan Kon",
