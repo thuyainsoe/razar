@@ -1,7 +1,7 @@
 ---
 title: "Top 5 Phones You Should Buy in 2025"
 description: "Discover the best smartphones of 2025 with top-notch features, cutting-edge technology, and unbeatable performance."
-publishedDate: "2024-12-13"
+publishedDate: "2024-12-12"
 tags: ["Smartphones", "Technology", "Best Phones 2025", "Buying Guide"]
 coverImage: "/images/blog/blog3.webp"
 author: "Ryan"
