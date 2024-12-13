@@ -10,6 +10,8 @@ const {
   description,
 } = Astro.props;
 
+const fbAppId = "898096579195691";
+
 interface Props {
   title?: string;
   metaUrl?: string;
@@ -40,6 +42,7 @@ interface Props {
 
     <!-- Open Graph (OG) / Facebook -->
     <meta property="og:title" content={title} />
+    <meta property="fb:app_id" content={fbAppId} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={metaUrl} />
