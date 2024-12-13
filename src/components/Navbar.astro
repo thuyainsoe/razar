@@ -22,8 +22,8 @@ import logo from "../images/logo_d.png";
 
   <!-- Desktop Navigation -->
   <nav class="hidden md:block">
-    <ul class="flex gap-8 text-xl font-heading text-text">
-      <li>
+    <ul class="flex items-center gap-2 text-xl font-heading text-text">
+      <li class="px-2">
         <a
           href="/"
           class="relative hover:text-highlight transition-all hover:shadow-highlight"
@@ -31,36 +31,39 @@ import logo from "../images/logo_d.png";
           Home
         </a>
       </li>
-      <li>
+      <li class="h-[70px] flex items-center group relative px-2">
         <a
-          href="/players"
-          class="relative hover:text-highlight transition-all hover:shadow-highlight"
+          href="#"
+          class="relative hover:text-highlight transition-all hover:shadow-highlight cursor-pointer"
         >
-          Players
+          Esport
         </a>
+        <ul
+          class="absolute top-[100%] w-fit left-0 pl-2 pr-8 bg-primary shadow-sm shadow-highlight hidden group-hover:flex flex-col items-start"
+        >
+          <li
+            class="cursor-pointer py-1 hover:text-highlight transition-all duration-100"
+          >
+            <a href="/players">Players</a>
+          </li>
+          <li
+            class="cursor-pointer py-1 hover:text-highlight transition-all duration-100"
+          >
+            Schedule
+          </li>
+          <li
+            class="cursor-pointer py-1 hover:text-highlight transition-all duration-100"
+          >
+            Heros
+          </li>
+        </ul>
       </li>
-      <li>
+      <li class="px-2">
         <a
           href="/blogs"
           class="relative hover:text-highlight transition-all hover:shadow-highlight"
         >
           Blogs
-        </a>
-      </li>
-      <li>
-        <a
-          href="/heroes"
-          class="relative hover:text-highlight transition-all hover:shadow-highlight"
-        >
-          Heroes
-        </a>
-      </li>
-      <li>
-        <a
-          href="/schedule"
-          class="relative hover:text-highlight transition-all hover:shadow-highlight"
-        >
-          Schedule
         </a>
       </li>
     </ul>
@@ -125,7 +128,9 @@ import logo from "../images/logo_d.png";
         </button>
       </div>
 
-      <ul class="flex flex-col gap-4 text-xl font-heading text-text p-[20px]">
+      <ul
+        class="flex w-full flex-col gap-4 text-xl font-heading text-text p-[20px]"
+      >
         <li>
           <a
             href="/"
@@ -133,32 +138,41 @@ import logo from "../images/logo_d.png";
             >Home</a
           >
         </li>
-        <li>
+        <li
+          x-data="{isEsportClick : false}"
+          class="grid grid-cols-2 items-center w-full justify-between"
+        >
           <a
-            href="/players"
-            class="hover:text-highlight transition-all hover:shadow-highlight"
-            >Players</a
+            class="hover:text-highlight transition-all hover:shadow-highlight col-span-1"
+            >Esport</a
           >
+          <div
+            class="w-3 col-span-1 ml-auto"
+            @click="isEsportClick = !isEsportClick"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"
+              ><path
+                fill="#F97316"
+                d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z"
+              ></path></svg
+            >
+          </div>
+          <ul
+            :class="isEsportClick ? 'flex' : 'hidden'"
+            class="col-span-2 mt-4 flex-col items-start gap-3 p-3 rounded-[4px] bg-primary"
+          >
+            <li class="border-l-[2px] border-highlight pl-2">
+              <a href="/players">Player</a>
+            </li>
+            <li class="border-l-[2px] border-highlight pl-2">Schedule</li>
+            <li class="border-l-[2px] border-highlight pl-2">Heros</li>
+          </ul>
         </li>
         <li>
           <a
             href="/blogs"
             class="hover:text-highlight transition-all hover:shadow-highlight"
             >Blogs</a
-          >
-        </li>
-        <li>
-          <a
-            href="/heroes"
-            class="hover:text-highlight transition-all hover:shadow-highlight"
-            >Heroes</a
-          >
-        </li>
-        <li>
-          <a
-            href="/schedule"
-            class="hover:text-highlight transition-all hover:shadow-highlight"
-            >Schedule</a
           >
         </li>
       </ul>
