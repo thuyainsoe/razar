@@ -31,6 +31,22 @@ import logo from "../images/logo_d.png";
           Home
         </a>
       </li>
+      <li class="px-2">
+        <a
+          href="#"
+          class="relative hover:text-highlight transition-all hover:shadow-highlight"
+        >
+          SPORT
+        </a>
+      </li>
+      <li class="px-2">
+        <a
+          href="#"
+          class="relative hover:text-highlight transition-all hover:shadow-highlight"
+        >
+          TECH
+        </a>
+      </li>
       <li class="h-[70px] flex items-center group relative px-2">
         <a
           href="#"
@@ -49,15 +65,11 @@ import logo from "../images/logo_d.png";
           <li
             class="cursor-pointer py-1 hover:text-highlight transition-all duration-100"
           >
-            Schedule
-          </li>
-          <li
-            class="cursor-pointer py-1 hover:text-highlight transition-all duration-100"
-          >
-            Heros
+            <a href="/esport/schedule">Schedule</a>
           </li>
         </ul>
       </li>
+
       <li class="px-2">
         <a
           href="/blogs"
@@ -138,6 +150,20 @@ import logo from "../images/logo_d.png";
             >Home</a
           >
         </li>
+        <li>
+          <a
+            href="#"
+            class="hover:text-highlight transition-all hover:shadow-highlight"
+            >Sport</a
+          >
+        </li>
+        <li>
+          <a
+            href="/"
+            class="hover:text-highlight transition-all hover:shadow-highlight"
+            >Tech</a
+          >
+        </li>
         <li
           x-data="{isEsportClick : false}"
           class="grid grid-cols-2 items-center w-full justify-between"
@@ -164,8 +190,9 @@ import logo from "../images/logo_d.png";
             <li class="border-l-[2px] border-highlight pl-2">
               <a href="/players">Player</a>
             </li>
-            <li class="border-l-[2px] border-highlight pl-2">Schedule</li>
-            <li class="border-l-[2px] border-highlight pl-2">Heros</li>
+            <li class="border-l-[2px] border-highlight pl-2">
+              <a href="/esport/schedule">Schedule</a>
+            </li>
           </ul>
         </li>
         <li>

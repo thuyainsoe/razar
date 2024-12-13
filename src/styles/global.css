@@ -4,5 +4,5 @@ body {
 }
 
 .main-container {
-  @apply px-[20px] md:px-[12%];
+  @apply px-[20px] lg:px-[12%];
 }
