@@ -3,8 +3,8 @@ title: "Pro Tips to Level Up Your Game in Mobile Legends"
 description: "Learn essential pro tips to dominate Mobile Legends and become a top-tier player."
 publishedDate: "2024-12-12"
 tags: ["Mobile Legends", "Gaming", "Pro Tips"]
-coverImage: "/images/ml-blog/ml-blog1.webp"
-author: "John Doe"
+coverImage: "/images/blog/blog1.webp"
+author: "Ryan"
 draft: false
 slug: pro-tips-to-level-up-your-game
 ---
@@ -119,6 +119,6 @@ Becoming a pro in Mobile Legends requires patience, strategy, and practice. Focu
 
 If you found these tips useful, share them with your squad and help them improve too!
 
-**Author**: John Doe  
+**Author**: Ryan  
 **Published**: December 12, 2024  
 **Tags**: Mobile Legends, Gaming, Pro Tips

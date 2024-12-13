@@ -7,12 +7,14 @@ const {
   title = "Razar - Your Ultimate Guide",
   metaUrl = "https://www.razarinfo.online/",
   metaImage = "https://www.razarinfo.online/images/hero_bg.webp",
+  description,
 } = Astro.props;
 
 interface Props {
   title?: string;
   metaUrl?: string;
   metaImage?: string;
+  description?: string;
 }
 ---
 
@@ -38,10 +40,7 @@ interface Props {
 
     <!-- Open Graph (OG) / Facebook -->
     <meta property="og:title" content={title} />
-    <meta
-      property="og:description"
-      content="Master Mobile Legends with expert guides, hero tips, and the latest strategies. Learn how to climb the ranks and dominate the game with ease."
-    />
+    <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={metaUrl} />
     <meta property="og:image" content={metaImage} />

@@ -1,10 +1,10 @@
 ---
 title: "Top 10 Mobile Legends Heroes to Dominate the Current Meta"
 description: "Discover the strongest heroes in Mobile Legends that will help you dominate the current meta and climb the ranks fast."
-publishedDate: "2024-12-15"
+publishedDate: "2024-12-12"
 tags: ["Mobile Legends", "Gaming", "Heroes", "Meta"]
-coverImage: "/images/ml-blog/ml-blog2.webp"
-author: "Jane Smith"
+coverImage: "/images/blog/blog2.webp"
+author: "Ryan"
 draft: false
 slug: top-10-mobile-legends-heroes-to-dominate-the-current-meta
 ---
@@ -161,6 +161,6 @@ Mastering these top 10 Mobile Legends heroes will give you a massive advantage i
 
 Start practicing these heroes, focus on their combos, and study pro player tactics. With patience, strategy, and the right heroes, you'll become unstoppable on the battlefield.
 
-**Author**: Jane Smith  
+**Author**: Ryan
 **Published**: December 15, 2024  
 **Tags**: Mobile Legends, Gaming, Heroes, Meta
