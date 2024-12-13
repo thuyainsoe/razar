@@ -15,7 +15,7 @@ Artificial Intelligence (AI) is no longer just a futuristic concept—it's a rea
 
 In this article, we'll explore how AI is reshaping key areas of our lives and what to expect as this revolutionary technology continues to evolve.
 
----
+<br>
 
 ## 1. **AI in Everyday Life**
 
@@ -29,7 +29,7 @@ AI has integrated seamlessly into our daily routines. Smart assistants like Alex
 
 AI's role in our personal lives continues to grow, offering us more convenience, entertainment, and efficiency than ever before.
 
----
+<br>
 
 ## 2. **Revolutionizing Healthcare**
 
@@ -43,7 +43,7 @@ AI's impact on healthcare is perhaps one of its most significant contributions. 
 
 With AI's help, healthcare is becoming more accessible, affordable, and effective for people around the globe.
 
----
+<br>
 
 ## 3. **AI at the Workplace**
 
@@ -57,7 +57,7 @@ The modern workplace is being redefined by AI-powered tools that increase produc
 
 While there are concerns about job displacement, many experts believe that AI will create new roles and opportunities for upskilling in the workforce.
 
----
+<br>
 
 ## 4. **AI in Entertainment and Media**
 
@@ -71,7 +71,7 @@ Entertainment platforms like Netflix, YouTube, and Spotify use AI to recommend p
 
 As AI continues to learn and adapt to our preferences, the future of media and entertainment looks more customized and engaging than ever.
 
----
+<br>
 
 ## 5. **AI and Smart Cities**
 
@@ -85,7 +85,7 @@ AI is at the heart of the smart city movement, making urban living more efficien
 
 As cities grow more connected, AI will play a crucial role in shaping urban infrastructure and improving quality of life.
 
----
+<br>
 
 ## 6. **AI in Education**
 
@@ -99,7 +99,7 @@ Education is being transformed by AI-driven platforms that offer personalized le
 
 With AI leading the way, students can now learn in more dynamic, interactive, and effective ways than ever before.
 
----
+<br>
 
 ## **What the Future Holds for AI**
 
