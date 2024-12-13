@@ -13,3 +13,11 @@ export function calculateAge(dob) {
 
   return age;
 }
+
+export function formatDate(dateString) {
+  const date = new Date(dateString);
+  const day = String(date.getDate()).padStart(2, "0"); // Ensures 2-digit day (e.g., 01, 02, 12)
+  const month = date.toLocaleString("en-US", { month: "short" }); // Gets short month (Jan, Feb, Dec, etc.)
+  const year = date.getFullYear();
+  return `${day} ${month} ${year}`;
+}
