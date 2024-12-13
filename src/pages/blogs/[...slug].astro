@@ -19,7 +19,10 @@ const { Content } = await entry.render();
 const publishedDate = formatDate(entry.data.publishedDate);
 ---
 
-<Layout>
+<Layout
+  metaUrl={`https://www.razarinfo.online/blogs/${slug}`}
+  metaImage={`https://www.razarinfo.online${entry.data.coverImage}`}
+>
   <div
     class="w-full main-container grid grid-cols-1 md:grid-cols-4 gap-5 blog-content"
   >
