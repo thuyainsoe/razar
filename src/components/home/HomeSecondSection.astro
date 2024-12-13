@@ -1,7 +1,18 @@
 ---
-import { Image } from "astro:assets";
 import PlayerTable from "../PlayerTable.astro";
 import { playerData } from "../../data/player";
+
+import { getCollection } from "astro:content";
+import { CollectionEntry } from "astro:content";
+
+const allBlogArticles: CollectionEntry<"blog">[] = (
+  await getCollection("blog")
+).sort(
+  (a: CollectionEntry<"blog">, b: CollectionEntry<"blog">) =>
+    b.data.publishedDate.valueOf() - a.data.publishedDate.valueOf(),
+);
+
+const otherArticles: CollectionEntry<"blog">[] = allBlogArticles.slice(1, 4);
 ---
 
 <div
@@ -19,45 +30,27 @@ import { playerData } from "../../data/player";
           See More →
         </a>
       </div>
-
       <!-- Scrollable Table Wrapper -->
       <PlayerTable playerData={playerData.slice(0, 10)} />
     </section>
   </div>
 
   <!-- Right Section (Optional) -->
-  <div class="col-[1/5] lg:col-[4/5] w-full">
+  <div class="col-[1/5] row-[1/2] lg:col-[4/5] w-full">
     <h2 class="font-heading text-2xl sm:text-3xl mb-6">Recent Blogs</h2>
     <div class="flex flex-col gap-5">
       {
-        [
-          {
-            title: "Master Hero Skills Like a Pro",
-            description:
-              "Learn the best skills to master heroes and dominate the arena.",
-            link: "/blog/master-hero-skills",
-          },
-          {
-            title: "Top 5 Hero Counters You Must Know",
-            description:
-              "Counter the strongest heroes with our detailed guide.",
-            link: "/blog/hero-counters",
-          },
-          {
-            title: "The Rise of Mobile Esports",
-            description:
-              "How Mobile Legends is shaping the future of mobile esports.",
-            link: "/blog/mobile-esports-rise",
-          },
-        ].map((blog, index) => (
-          <div class="bg-gray-800 p-4 rounded-md shadow-md">
-            <h3 class="font-heading text-lg sm:text-xl mb-2">{blog.title}</h3>
-            <p class="text-sm sm:text-base text-gray-400 mb-4">
-              {blog.description}
+        otherArticles.map((blog, index) => (
+          <div class="bg-gray-800 p-4 rounded-md shadow-md bg-cover bg-center relative">
+            <h3 class="text-base sm:text-lg mb-2 line-clamp-2">
+              {blog.data.title}
+            </h3>
+            <p class="text-sm  text-gray-400 mb-4 line-clamp-2">
+              {blog.data.description}
             </p>
             <a
-              href={blog.link}
-              class="text-highlight text-sm sm:text-base font-semibold hover:underline"
+              href={`/blogs/${blog.slug}`}
+              class="text-highlight text-sm  font-semibold hover:underline"
             >
               Read More →
             </a>
