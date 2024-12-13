@@ -8,16 +8,70 @@ import "../styles/global.css";
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!-- Add this in your <head> tag -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- SEO Metadata -->
+    <title>Razar - Your Ultimate Mobile Legends Guide</title>
+    <meta
+      name="description"
+      content="Master Mobile Legends with expert guides, hero tips, and the latest strategies. Learn how to climb the ranks and dominate the game with ease."
+    />
+    <meta
+      name="keywords"
+      content="Mobile Legends, Mobile Legends Guide, Hero Tips, Mobile Legends Meta, Gaming, Mobile MOBA"
+    />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Razar Team" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Open Graph (OG) / Facebook -->
+    <meta
+      property="og:title"
+      content="Razar - Your Ultimate Mobile Legends Guide"
+    />
+    <meta
+      property="og:description"
+      content="Master Mobile Legends with expert guides, hero tips, and the latest strategies. Learn how to climb the ranks and dominate the game with ease."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://yourdomain.com/" />
+    <meta
+      property="og:image"
+      content="https://yourdomain.com/images/hero_bg.webp"
+    />
+    <meta property="og:site_name" content="Razar" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Razar - Your Ultimate Mobile Legends Guide"
+    />
+    <meta
+      name="twitter:description"
+      content="Master Mobile Legends with expert guides, hero tips, and the latest strategies. Learn how to climb the ranks and dominate the game with ease."
+    />
+    <meta
+      name="twitter:image"
+      content="https://yourdomain.com/images/hero_bg.webp"
+    />
+    <meta name="twitter:site" content="@your_twitter_handle" />
+    <meta name="twitter:creator" content="@your_twitter_handle" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/logo_d.png" />
+
+    <!-- Google Fonts -->
     <link
       href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="icon" type="image/png" href="/logo_d.png" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Razar</title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles/global.css" />
   </head>
+
   <body>
     <Navbar />
     <slot />
@@ -25,4 +79,8 @@ import "../styles/global.css";
   </body>
 </html>
 
-<style></style>
+<style>
+  body {
+    font-family: "Inter", "Poppins", "Bebas Neue", sans-serif;
+  }
+</style>

@@ -26,7 +26,7 @@ const publishedDate = formatDate(entry.data.publishedDate);
     <!-- Main Blog Content (Left Side) -->
     <div class="col-span-1 md:col-span-3">
       <header class="text-white pt-10">
-        <div class="container mx-auto px-4">
+        <div class="container mx-auto">
           <h1 class="text-4xl font-bold">{entry.data.title}</h1>
           <p class="mt-4 text-base">{entry.data.description}</p>
           <div class="flex flex-wrap items-center gap-2 mt-6 text-sm">
@@ -49,7 +49,7 @@ const publishedDate = formatDate(entry.data.publishedDate);
         </div>
       </header>
 
-      <main class="mx-auto px-4 py-10">
+      <main class="mx-auto py-10">
         <img
           src={entry.data.coverImage}
           alt={`Cover image for ${entry.data.title}`}
@@ -59,7 +59,7 @@ const publishedDate = formatDate(entry.data.publishedDate);
       </main>
 
       <footer class="bg-dark text-white pb-10">
-        <div class="container mx-auto px-4">
+        <div class="container mx-auto">
           <p>
             Written by <span class="font-semibold text-highlight"
               >{entry.data.author}</span
