@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import { CollectionEntry } from "astro:content";
+import ReadMoreBtn from "../ReadMoreBtn.astro";
 
 const allBlogArticles: CollectionEntry<"blog">[] = (
   await getCollection("blog")
@@ -9,13 +10,14 @@ const allBlogArticles: CollectionEntry<"blog">[] = (
     b.data.publishedDate.valueOf() - a.data.publishedDate.valueOf(),
 );
 
-const mostRecentArticle: CollectionEntry<"blog"> = allBlogArticles[0];
-
-const otherArticles: CollectionEntry<"blog">[] = allBlogArticles.slice(1);
+const recentThreeArticle: CollectionEntry<"blog">[] = allBlogArticles.slice(
+  0,
+  3,
+);
 ---
 
 <div
-  class="w-full main-container grid grid-cols-1 md:grid-cols-2 gap-5 items-center h-auto md:h-[500px] py-8 md:py-[50px]"
+  class="w-full grid grid-cols-1 md:grid-cols-2 gap-5 items-center h-auto md:h-[500px] py-8 md:py-[50px]"
 >
   <!-- Left Content (Text Section) -->
   <div
@@ -36,38 +38,57 @@ const otherArticles: CollectionEntry<"blog">[] = allBlogArticles.slice(1);
   </div>
 
   <!-- Right Content (Image Section) -->
-  <div
-    style={`background-image: url('${mostRecentArticle.data.coverImage}')`}
-    class={`w-full h-[300px] sm:h-[400px] md:h-full bg-red-500  bg-cover bg-center relative`}
-  >
-    <div
-      class="absolute inset-0 bg-black bg-opacity-60 p-4 sm:p-6 md:p-8 flex flex-col justify-end"
-    >
-      <div class="flex flex-wrap gap-2 mb-4">
-        {
-          mostRecentArticle.data.tags.map((tag, index) => (
-            <span
-              class={`${index % 2 === 0 ? "bg-primary" : "bg-primary"} text-white px-2 py-1 rounded-md text-xs`}
+  <div class="swiper mySwiper w-full h-[300px] sm:h-[400px]">
+    <div class="swiper-wrapper">
+      {
+        recentThreeArticle.map((article) => (
+          <div class="swiper-slide">
+            <div
+              style={`background-image: url('${article.data.coverImage}')`}
+              class={`w-full h-[300px] sm:h-[400px] md:h-full bg-red-500  bg-cover bg-center relative`}
             >
-              {tag}
-            </span>
-          ))
-        }
-      </div>
-      <h2
-        class="text-xl sm:text-xl md:text-2xl font-bold text-white leading-tight mb-2 line-clamp-2"
-      >
-        {mostRecentArticle.data.title}
-      </h2>
-      <p class="text-sm text-white/80 mb-4 line-clamp-2">
-        {mostRecentArticle.data.description}
-      </p>
-      <a
-        href={`/blogs/${mostRecentArticle?.slug}`}
-        class="mt-4 text-text text-sm sm:text-base font-semibold hover:text-highlight"
-      >
-        Read More →
-      </a>
+              <div class="absolute inset-0 bg-black bg-opacity-60 p-4 sm:p-6 md:p-8 flex flex-col justify-end">
+                <div class="flex flex-wrap gap-2 mb-4">
+                  {article.data.tags.map((tag, index) => (
+                    <span
+                      class={`${index % 2 === 0 ? "bg-primary" : "bg-primary"} text-white px-2 py-1 rounded-md text-xs`}
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <h2 class="text-xl sm:text-xl md:text-2xl font-bold text-white leading-tight mb-2 line-clamp-2">
+                  {article.data.title}
+                </h2>
+                <p class="text-sm text-white/80 mb-4 line-clamp-2">
+                  {article.data.description}
+                </p>
+                <ReadMoreBtn href={`/blogs/${article?.slug}`} />
+              </div>
+            </div>
+          </div>
+        ))
+      }
     </div>
   </div>
 </div>
+
+<script is:inline>
+  var swiper = new Swiper(".mySwiper", {
+    spaceBetween: 30,
+    effect: "fade",
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    autoplay: {
+      delay: 3000, // Delay in milliseconds (3000ms = 3 seconds)
+      disableOnInteraction: false, // Keeps autoplay active even after user interaction
+    },
+    loop: true,
+  });
+</script>

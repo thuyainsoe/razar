@@ -4,6 +4,7 @@ import { playerData } from "../../data/player";
 
 import { getCollection } from "astro:content";
 import { CollectionEntry } from "astro:content";
+import ReadMoreBtn from "../ReadMoreBtn.astro";
 
 const allBlogArticles: CollectionEntry<"blog">[] = (
   await getCollection("blog")
@@ -15,9 +16,7 @@ const allBlogArticles: CollectionEntry<"blog">[] = (
 const otherArticles: CollectionEntry<"blog">[] = allBlogArticles.slice(1, 4);
 ---
 
-<div
-  class="w-full main-container grid grid-cols-4 gap-5 items-start py-8 md:py-[50px]"
->
+<div class="w-full grid grid-cols-4 gap-5 items-start py-8 md:py-[50px]">
   <!-- Left Section -->
   <div class="col-[1/5] lg:col-[1/4] w-full">
     <section id="stats" class="text-text min-h-[50vh] w-full">
@@ -42,18 +41,13 @@ const otherArticles: CollectionEntry<"blog">[] = allBlogArticles.slice(1, 4);
       {
         otherArticles.map((blog, index) => (
           <div class="bg-gray-800 p-4 rounded-md shadow-md bg-cover bg-center relative">
-            <h3 class="text-base sm:text-lg mb-2 line-clamp-2">
+            <h3 class="text-base sm:text-base mb-2 line-clamp-2">
               {blog.data.title}
             </h3>
             <p class="text-sm  text-gray-400 mb-4 line-clamp-2">
               {blog.data.description}
             </p>
-            <a
-              href={`/blogs/${blog.slug}`}
-              class="text-highlight text-sm  font-semibold hover:underline"
-            >
-              Read More →
-            </a>
+            <ReadMoreBtn href={`/blogs/${blog.slug}`} />
           </div>
         ))
       }

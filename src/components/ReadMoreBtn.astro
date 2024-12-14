@@ -1,0 +1,13 @@
+---
+// ReadMore.astro
+export interface Props {
+  href: string;
+}
+---
+
+<a
+  href={Astro.props.href}
+  class="text-text text-sm font-semibold hover:text-highlight"
+>
+  Read More →
+</a>

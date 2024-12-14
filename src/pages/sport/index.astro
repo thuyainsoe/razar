@@ -1,0 +1,56 @@
+---
+import { CollectionEntry, getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import ReadMoreBtn from "../../components/ReadMoreBtn.astro";
+import TwoColumnButton from "../../components/TwoColumnButton.astro";
+const technologyArticles: CollectionEntry<"blog">[] = (
+  await getCollection("blog", ({ data }) => data.tags.includes("Technology"))
+).sort(
+  (a: CollectionEntry<"blog">, b: CollectionEntry<"blog">) =>
+    b.data.publishedDate.valueOf() - a.data.publishedDate.valueOf(),
+);
+---
+
+<Layout>
+  <main class="py-10">
+    <section
+      class="relative bg-background text-text flex flex-col main-container"
+    >
+      <h1 class="text-2xl md:text-3xl font-bold text-left mb-[20px]">
+        Recent Sports New
+      </h1>
+
+      <div class="relative z-10 mx-auto">
+        <!-- Featured Blog Post -->
+        <div
+          class="flex flex-col md:flex-row items-center justify-between gap-10"
+        >
+          <!-- Blog Image -->
+          <div class="w-full md:w-1/2">
+            <img
+              src={technologyArticles[0].data.coverImage}
+              alt="Featured Blog"
+              class="w-full h-auto rounded-xl shadow-lg object-cover"
+            />
+          </div>
+
+          <!-- Blog Content -->
+          <div class="w-full md:w-1/2 flex flex-col gap-[10px]">
+            <div class="w-full">
+              <h2
+                class="text-2xl sm:text-3xl md:text-4xl font-heading uppercase tracking-wide leading-tight"
+              >
+                {technologyArticles[0].data.title}
+              </h2>
+            </div>
+            <p class="text-sm font-body leading-relaxed">
+              {technologyArticles[0].data.description}
+            </p>
+            <ReadMoreBtn href="/blog/top-10-football-moments" />
+          </div>
+        </div>
+      </div>
+      <TwoColumnButton />
+    </section>
+  </main>
+</Layout>
