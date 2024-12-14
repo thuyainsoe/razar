@@ -60,14 +60,15 @@ const upcomingMatches = [
     </h2>
 
     <!-- Matches Grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
       {upcomingMatches.map((match, index) => (
         <div 
-          class="flex flex-col sm:flex-row items-start sm:items-center bg-gray-800 p-4 sm:p-6 rounded-lg shadow-md transform transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg"
+          class="flex flex-row items-center bg-gray-800 p-4 sm:p-6 
+          rounded-lg shadow-md transform transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg"
         >
           <!-- Date -->
           <span 
-            class="block text-gray-400 mb-2 sm:mb-0 sm:mr-4 text-xs sm:text-sm w-full sm:w-auto"
+            class="block text-gray-400 mr-4 text-xs sm:text-sm  sm:w-auto"
           >
             {match.date}
           </span>

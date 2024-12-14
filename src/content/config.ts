@@ -8,6 +8,7 @@ const blog = defineCollection({
     tags: z.array(z.string()).nonempty("At least one tag is required"), // Array of tags, at least one required
     coverImage: z.string(), // URL validation for the cover image
     author: z.string().min(1, "Author is required"), // Author name is required
+    keywords: z.string().optional(),
     draft: z.boolean().optional(), // Optional draft flag
   }),
 });

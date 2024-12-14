@@ -1,22 +1,46 @@
 ---
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
-import "../styles/global.css";
 
 const {
   title = "Razar - Your Ultimate Guide",
   metaUrl = "https://www.razarinfo.online/",
-  metaImage = "https://www.razarinfo.online/images/hero_bg.webp",
+  metaImage = "https://www.razarinfo.online/images/logo_d.png",
   description = "Dive into a world of eSports, football, IT, and more with exclusive player insights, expert guides, and real-time updates. Stay informed, stay ahead!",
+  keywords = "Player Insights, Game Strategies, Tech Trends, eSports News, Football Insights, IT News, Expert Game Guides, Real-Time Updates, eSports Tips, Football News, IT Trends 2024, Latest eSports Updates, Gaming Insights, Expert Player Guides, Latest Tech News, Game Strategies for Pro Players, eSports Analysis, Football Analysis, Online Game Strategies, Digital Trends in Gaming, Pro Player Tips, Competitive Gaming Tips",
 } = Astro.props;
 
 const fbAppId = "898096579195691";
+
+const ldJson = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: title,
+  description: description,
+  url: metaUrl,
+  image: metaImage,
+  datePublished: "2024-12-11T06:17:59+00:00",
+  dateModified: "2024-12-14T10:47:49+00:00",
+  author: {
+    "@type": "Person",
+    name: "Ryan",
+  },
+  publisher: {
+    "@type": "Organization",
+    name: "Razar",
+    logo: {
+      "@type": "ImageObject",
+      url: "https://www.razarinfo.online/images/logo_d.png",
+    },
+  },
+};
 
 interface Props {
   title?: string;
   metaUrl?: string;
   metaImage?: string;
   description?: string;
+  keywords?: string;
 }
 ---
 
@@ -25,14 +49,16 @@ interface Props {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!-- SEO Metadata -->
     <title>{title}</title>
+    <!-- SEO Metadata -->
+    <meta charset="UTF-8" />
     <meta name="description" content={description} />
-    <meta name="keywords" content={title} />
+    <meta name="keywords" content={keywords} />
     <meta name="robots" content="index, follow" />
     <meta name="author" content="Razar Team" />
     <meta name="generator" content={Astro.generator} />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="canonical" href={metaUrl} />
 
     <!-- Open Graph (OG) / Facebook -->
     <meta property="og:title" content={title} />
@@ -43,6 +69,7 @@ interface Props {
     <meta property="og:image" content={metaImage} />
     <meta property="og:site_name" content="Razar" />
     <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="article" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content={metaImage} />
@@ -58,6 +85,12 @@ interface Props {
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="/logo_d.png" />
 
+    {
+      ldJson && (
+        <script type="application/ld+json" set:html={JSON.stringify(ldJson)} />
+      )
+    }
+
     <!-- Google Fonts -->
     <link
       href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
@@ -72,8 +105,11 @@ interface Props {
       src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"
     ></script>
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="../styles/global.css" />
+    <script>
+      window.onload = function () {
+        console.log("Page load time: " + performance.now() + "ms");
+      };
+    </script>
   </head>
 
   <body>
@@ -81,11 +117,16 @@ interface Props {
     <slot />
     <Footer />
   </body>
-  >
 </html>
 
-<style>
+<style is:global>
+  html,
   body {
     font-family: "Inter", "Poppins", "Bebas Neue", sans-serif;
+    @apply bg-background text-text font-sans;
+  }
+
+  .main-container {
+    @apply px-[20px] lg:px-[12%];
   }
 </style>

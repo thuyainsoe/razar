@@ -1,8 +1,0 @@
-html,
-body {
-  @apply bg-background text-text font-sans;
-}
-
-.main-container {
-  @apply px-[20px] lg:px-[12%];
-}
