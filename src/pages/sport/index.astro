@@ -3,10 +3,10 @@ import { CollectionEntry, getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import ReadMoreBtn from "../../components/ReadMoreBtn.astro";
 import TwoColumnButton from "../../components/TwoColumnButton.astro";
-const technologyArticles: CollectionEntry<"blog">[] = (
-  await getCollection("blog", ({ data }) => data.tags.includes("Technology"))
+const technologyArticles: CollectionEntry<"sport">[] = (
+  await getCollection("sport")
 ).sort(
-  (a: CollectionEntry<"blog">, b: CollectionEntry<"blog">) =>
+  (a: CollectionEntry<"sport">, b: CollectionEntry<"sport">) =>
     b.data.publishedDate.valueOf() - a.data.publishedDate.valueOf(),
 );
 ---
@@ -23,19 +23,21 @@ const technologyArticles: CollectionEntry<"blog">[] = (
       <div class="relative z-10 mx-auto">
         <!-- Featured Blog Post -->
         <div
-          class="flex flex-col md:flex-row items-center justify-between gap-10"
+          class="flex flex-col md:flex-row items-center justify-between gap-[20px] h-[350px]"
         >
           <!-- Blog Image -->
-          <div class="w-full md:w-1/2">
+          <div class="w-full md:w-1/2 h-full">
             <img
               src={technologyArticles[0].data.coverImage}
               alt="Featured Blog"
-              class="w-full h-auto rounded-xl shadow-lg object-cover"
+              class="w-full h-full rounded-lg shadow-lg object-cover"
             />
           </div>
 
           <!-- Blog Content -->
-          <div class="w-full md:w-1/2 flex flex-col gap-[10px]">
+          <div
+            class="w-full md:w-1/2 flex flex-col gap-[10px] bg-gray-800 h-full justify-center px-7 rounded-lg"
+          >
             <div class="w-full">
               <h2
                 class="text-2xl sm:text-3xl md:text-4xl font-heading uppercase tracking-wide leading-tight"

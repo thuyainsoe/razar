@@ -1,4 +1,17 @@
 import { defineCollection, z } from "astro:content";
+
+const sport = defineCollection({
+  type: "content",
+  schema: z.object({
+    title: z.string().min(5, "Title must be at least 5 characters."),
+    description: z.string(),
+    publishedDate: z.string().transform((date) => new Date(date)),
+    coverImage: z.string(),
+    author: z.string(),
+    keywords: z.string(),
+  }),
+});
+
 const blog = defineCollection({
   type: "content",
   schema: z.object({
@@ -28,4 +41,5 @@ const player = defineCollection({
 export const collections = {
   player,
   blog,
+  sport,
 };
