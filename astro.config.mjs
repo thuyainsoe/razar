@@ -17,20 +17,4 @@ export default defineConfig({
   integrations: [tailwind(), icon(), alpinejs()],
   output: "server",
   adapter: vercel(),
-  env: {
-    schema: {
-      PUBLIC_EMAILJS_USER_ID: envField.string({
-        context: "client",
-        access: "public",
-      }),
-      PUBLIC_EMAILJS_SERVICE_ID: envField.string({
-        context: "client",
-        access: "public",
-      }),
-      PUBLIC_EMAILJS_TEMPLATE_ID: envField.string({
-        context: "client",
-        access: "public",
-      }),
-    },
-  },
 });
