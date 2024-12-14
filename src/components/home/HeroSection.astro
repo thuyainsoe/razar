@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import { CollectionEntry } from "astro:content";
 import ReadMoreBtn from "../ReadMoreBtn.astro";
+import FontHeading from "../FontHeading.astro";
 
 const allBlogArticles: CollectionEntry<"blog">[] = (
   await getCollection("blog")
@@ -23,14 +24,11 @@ const recentThreeArticle: CollectionEntry<"blog">[] = allBlogArticles.slice(
   <div
     class="text-text w-full flex items-start justify-center flex-col relative md:p-0"
   >
-    <h1
-      class="font-heading text-left text-2xl sm:text-3xl md:text-4xl mb-4 w-full relative text-white"
-    >
-      Unleash the Power of Knowledge with Player Insights, Game Strategies &
-      Tech Trends
-    </h1>
+    <FontHeading
+      label="Unleash the Power of Knowledge with Player Insights, Game Strategies & Tech Trends"
+    />
     <p
-      class="font-body text-left text-base sm:text-base mb-6 relative text-white/90"
+      class="font-body text-left text-base sm:text-base mb-6 relative text-white/90 mt-4"
     >
       Dive into a world of eSports, football, IT, and more with exclusive player
       insights, expert guides, and real-time updates. Stay informed, stay ahead!

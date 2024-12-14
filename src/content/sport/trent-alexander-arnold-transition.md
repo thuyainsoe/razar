@@ -3,7 +3,8 @@ title: "Trent Alexander-Arnold on Liverpool’s Transition Under Arne Slot"
 description: "A look at how Trent Alexander-Arnold and Liverpool adapted to life under Arne Slot, their trophy ambitions, and the role of senior players in embracing change."
 publishedDate: "2024-12-14"
 coverImage: "/images/sport/new1.jpeg"
-author: "Your Name"
+author: "Ryan"
+tags: ["Premier League", "Liverpool"]
 keywords: "Liverpool, Trent Alexander-Arnold, Arne Slot, Premier League, Champions League, Liverpool FC, player contracts, football tactics, manager change, player development"
 slug: trent-alexander-arnold-transition
 ---

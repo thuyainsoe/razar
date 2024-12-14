@@ -5,6 +5,7 @@ import { playerData } from "../../data/player";
 import { getCollection } from "astro:content";
 import { CollectionEntry } from "astro:content";
 import ReadMoreBtn from "../ReadMoreBtn.astro";
+import FontHeading from "../FontHeading.astro";
 
 const allBlogArticles: CollectionEntry<"blog">[] = (
   await getCollection("blog")
@@ -20,8 +21,8 @@ const otherArticles: CollectionEntry<"blog">[] = allBlogArticles.slice(1, 4);
   <!-- Left Section -->
   <div class="col-[1/5] lg:col-[1/4] w-full">
     <section id="stats" class="text-text min-h-[50vh] w-full">
-      <div class="flex flex-row items-center justify-between w-full mb-6">
-        <h2 class="font-heading text-2xl sm:text-3xl">Players In Myanmar</h2>
+      <div class="flex flex-row items-center justify-between w-full mb-4">
+        <FontHeading label="Players In Myanmar" />
         <a
           href="/players"
           class="text-text text-xs uppercase py-1 px-2 rounded hover:bg-orange-500 transition-all"
@@ -36,8 +37,8 @@ const otherArticles: CollectionEntry<"blog">[] = allBlogArticles.slice(1, 4);
 
   <!-- Right Section (Optional) -->
   <div class="col-[1/5] row-[1/2] lg:col-[4/5] w-full">
-    <h2 class="font-heading text-2xl sm:text-3xl mb-6">Recent Blogs</h2>
-    <div class="flex flex-col gap-5">
+    <FontHeading label="Recent Blogs" />
+    <div class="flex flex-col gap-5 mt-4">
       {
         otherArticles.map((blog, index) => (
           <div class="bg-gray-800 p-4 rounded-md shadow-md bg-cover bg-center relative">

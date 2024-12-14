@@ -5,6 +5,7 @@ const sport = defineCollection({
   schema: z.object({
     title: z.string().min(5, "Title must be at least 5 characters."),
     description: z.string(),
+    tags: z.array(z.string()).nonempty("At least one tag is required"),
     publishedDate: z.string().transform((date) => new Date(date)),
     coverImage: z.string(),
     author: z.string(),

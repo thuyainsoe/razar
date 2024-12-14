@@ -1,3 +1,7 @@
+---
+import FontHeading from "./FontHeading.astro";
+---
+
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 py-8 md:py-12">
   <!-- Explore All Blogs -->
   <a
@@ -5,15 +9,13 @@
     class="flex items-center justify-between p-6 bg-gray-800 text-white rounded-xl shadow-lg transition-transform"
   >
     <div>
-      <h3 class="text-2xl font-heading leading-tight">
-        Explore All Sports Blogs
-      </h3>
-      <p class="font-body leading-relaxed">
+      <FontHeading label="Explore All Sports Blogs" />
+      <p class="font-body leading-relaxed mt-2">
         Browse the latest sports articles, analysis, and opinions.
       </p>
     </div>
     <svg
-      class="w-10 h-10 text-highlight"
+      class="w-6 h-6 text-highlight"
       fill="none"
       stroke="currentColor"
       stroke-width="2"
@@ -30,16 +32,16 @@
   <!-- View Premier League Table -->
   <a
     href="/premier-league-table"
-    class="flex items-center justify-between p-6 bg-text text-background rounded-xl shadow-lg transition-transform"
+    class="flex items-center justify-between p-6 bg-primary text-text rounded-xl shadow-lg transition-transform"
   >
     <div>
-      <h3 class="text-2xl font-heading leading-tight">Premier League Table</h3>
-      <p class="font-body leading-relaxed">
+      <FontHeading label="Premier League Table" />
+      <p class="font-body leading-relaxed mt-2">
         Check out the current standings, top scorers, and more.
       </p>
     </div>
     <svg
-      class="w-10 h-10 text-highlight"
+      class="w-7 h-7 text-highlight"
       fill="none"
       stroke="currentColor"
       stroke-width="2"

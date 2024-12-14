@@ -1,12 +1,11 @@
 ---
 import { Image } from "astro:assets";
+import FontHeading from "../FontHeading.astro";
 ---
 
 <section class="py-[50px] bg-gray-900">
   <div class="main-container">
-    <h2 class="font-heading text-2xl sm:text-3xl text-left mb-4">
-      Featured Heroes
-    </h2>
+    <FontHeading label="Featured Heroes" />
     <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
       {
         [
