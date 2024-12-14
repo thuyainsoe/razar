@@ -7,7 +7,7 @@ const {
   title = "Razar - Your Ultimate Guide",
   metaUrl = "https://www.razarinfo.online/",
   metaImage = "https://www.razarinfo.online/images/hero_bg.webp",
-  description,
+  description = "Dive into a world of eSports, football, IT, and more with exclusive player insights, expert guides, and real-time updates. Stay informed, stay ahead!",
 } = Astro.props;
 
 const fbAppId = "898096579195691";
@@ -28,14 +28,8 @@ interface Props {
 
     <!-- SEO Metadata -->
     <title>{title}</title>
-    <meta
-      name="description"
-      content="Master Mobile Legends with expert guides, hero tips, and the latest strategies. Learn how to climb the ranks and dominate the game with ease."
-    />
-    <meta
-      name="keywords"
-      content="Mobile Legends, Mobile Legends Guide, Hero Tips, Mobile Legends Meta, Gaming, Mobile MOBA"
-    />
+    <meta name="description" content={description} />
+    <meta name="keywords" content={title} />
     <meta name="robots" content="index, follow" />
     <meta name="author" content="Razar Team" />
     <meta name="generator" content={Astro.generator} />
@@ -51,15 +45,9 @@ interface Props {
     <meta property="og:locale" content="en_US" />
 
     <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content="Razar - Your Ultimate Mobile Legends Guide"
-    />
-    <meta
-      name="twitter:description"
-      content="Master Mobile Legends with expert guides, hero tips, and the latest strategies. Learn how to climb the ranks and dominate the game with ease."
-    />
+    <meta name="twitter:card" content={metaImage} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
     <meta
       name="twitter:image"
       content="https://www.razarinfo.online/images/hero_bg.webp"
