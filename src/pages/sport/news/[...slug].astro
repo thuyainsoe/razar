@@ -17,8 +17,6 @@ if (entry === undefined) {
 const { Content } = await entry.render();
 
 const publishedDate = formatDate(entry.data.publishedDate);
-
-console.log(entry.data.tags);
 ---
 
 <Layout
@@ -89,14 +87,3 @@ console.log(entry.data.tags);
     </div>
   </div>
 </Layout>
-
-<style is:global>
-  .blog-content p {
-    margin: 20px 0;
-  }
-
-  .blog-content h2 {
-    margin: 20px 0;
-    font-size: 1.8rem;
-  }
-</style>
