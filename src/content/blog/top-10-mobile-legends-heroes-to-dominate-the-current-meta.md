@@ -2,7 +2,7 @@
 title: "Top 10 Mobile Legends Heroes to Dominate the Current Meta"
 description: "Discover the strongest heroes in Mobile Legends that will help you dominate the current meta and climb the ranks fast."
 publishedDate: "2024-12-12"
-tags: ["Mobile Legends", "Gaming", "Heroes", "Meta"]
+tags: ["Mobile Legends", "Gaming", "Heroes", "Esport"]
 coverImage: "/images/blog/blog2.webp"
 author: "Ryan"
 draft: false

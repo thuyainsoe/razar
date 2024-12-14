@@ -2,7 +2,7 @@
 title: "Web 3.0: What It Means for Creators and Developers"
 description: "Unveil the potential of Web 3.0 and explore how it empowers creators and developers in the era of decentralization, blockchain, and token-based economies."
 publishedDate: "2024-12-13T12:59:04Z"
-tags: ["Web 3.0", "Blockchain", "Development", "Creators"]
+tags: ["Web 3.0", "Blockchain", "Development", "Technology"]
 coverImage: "/images/blog/blog7.webp"
 author: "Ryan"
 draft: false

@@ -2,7 +2,7 @@
 title: "Pro Tips to Level Up Your Game in Mobile Legends"
 description: "Learn essential pro tips to dominate Mobile Legends and become a top-tier player."
 publishedDate: "2024-12-12"
-tags: ["Mobile Legends", "Gaming", "Pro Tips"]
+tags: ["Mobile Legends", "Esport", "Pro Tips"]
 coverImage: "/images/blog/blog1.webp"
 author: "Ryan"
 draft: false

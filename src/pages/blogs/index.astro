@@ -21,6 +21,12 @@ const articlesForPage: CollectionEntry<"blog">[] = allBlogArticles.slice(
   (currentPage - 1) * ARTICLES_PER_PAGE,
   currentPage * ARTICLES_PER_PAGE,
 );
+
+// const alltags = allBlogArticles.filter((article) =>
+//   article.data.tags.includes("Technology"),
+// );
+// const combinedArray = [...new Set(alltags.flat())];
+// console.log(combinedArray);
 ---
 
 <Layout>
@@ -81,7 +87,7 @@ const articlesForPage: CollectionEntry<"blog">[] = allBlogArticles.slice(
       {
         currentPage > 1 && (
           <a
-            href={`/blog?page=${currentPage - 1}`}
+            href={`/blogs?page=${currentPage - 1}`}
             class="px-4 py-2 bg-primary text-white rounded-md hover:bg-opacity-80 transition"
           >
             Previous
