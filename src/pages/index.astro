@@ -4,11 +4,31 @@ import HeroSection from "../components/home/HeroSection.astro";
 import HomeSecondSection from "../components/home/HomeSecondSection.astro";
 import UpcomingMatch from "../components/home/UpcomingMatch.astro";
 import TwoColumnButton from "../components/TwoColumnButton.astro";
+import FourRowNewsAndHeader from "../components/FourRowNewsAndHeader.astro";
+import { CollectionEntry } from "astro:content";
+import { getCollection } from "astro:content";
+const sportNews: CollectionEntry<"sport">[] = (
+  await getCollection("sport")
+).sort(
+  (a: CollectionEntry<"sport">, b: CollectionEntry<"sport">) =>
+    b.data.publishedDate.valueOf() - a.data.publishedDate.valueOf(),
+);
+
+const premierLeagueTopFourNews = sportNews
+  .filter((newsItem) => {
+    return newsItem.data.tags.includes("Premier League");
+  })
+  .slice(0, 4)
+  .map((item) => ({ ...item, slug: `/sport/news/${item.slug}` }));
 ---
 
 <Layout>
   <div class="w-full main-container">
     <HeroSection />
+    <FourRowNewsAndHeader
+      label="Premier League"
+      articles={premierLeagueTopFourNews}
+    />
     <HomeSecondSection />
     <TwoColumnButton />
     <UpcomingMatch />

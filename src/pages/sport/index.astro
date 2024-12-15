@@ -4,6 +4,7 @@ import Layout from "../../layouts/Layout.astro";
 import ReadMoreBtn from "../../components/ReadMoreBtn.astro";
 import TwoColumnButton from "../../components/TwoColumnButton.astro";
 import FontHeading from "../../components/FontHeading.astro";
+import FourRowNewsAndHeader from "../../components/FourRowNewsAndHeader.astro";
 
 const sportNews: CollectionEntry<"sport">[] = (
   await getCollection("sport")
@@ -11,6 +12,15 @@ const sportNews: CollectionEntry<"sport">[] = (
   (a: CollectionEntry<"sport">, b: CollectionEntry<"sport">) =>
     b.data.publishedDate.valueOf() - a.data.publishedDate.valueOf(),
 );
+
+const premierLeagueTopFourNews = sportNews
+  .filter((newsItem) => {
+    return newsItem.data.tags.includes("Premier League");
+  })
+  .slice(0, 4)
+  .map((item) => ({ ...item, slug: `/sport/news/${item.slug}` }));
+
+console.log(premierLeagueTopFourNews.length);
 ---
 
 <Layout>
@@ -28,7 +38,7 @@ const sportNews: CollectionEntry<"sport">[] = (
           <!-- Blog Image -->
           <div class="w-full md:w-1/2 h-full">
             <img
-              src={sportNews[0].data.coverImage}
+              src={sportNews[1].data.coverImage}
               alt="Featured Blog"
               class="w-full h-full rounded-lg shadow-lg object-cover"
             />
@@ -41,7 +51,7 @@ const sportNews: CollectionEntry<"sport">[] = (
             <div class="w-full">
               <div class="flex flex-wrap gap-1 mb-2">
                 {
-                  sportNews[0].data.tags.map((tag, index) => (
+                  sportNews[1].data.tags.map((tag, index) => (
                     <span
                       class={`${index % 2 === 0 ? "bg-primary" : "bg-primary"} text-white px-2 py-1 rounded-md text-xs`}
                     >
@@ -53,43 +63,21 @@ const sportNews: CollectionEntry<"sport">[] = (
               <h2
                 class="text-xl md:text-2xl font-semibold tracking-wide leading-tight"
               >
-                {sportNews[0].data.title}
+                {sportNews[1].data.title}
               </h2>
             </div>
             <p class="text-sm font-body leading-relaxed text-white/50">
-              {sportNews[0].data.description}
+              {sportNews[1].data.description}
             </p>
-            <ReadMoreBtn href={`/sport/news/${sportNews[0].slug}`} />
+            <ReadMoreBtn href={`/sport/news/${sportNews[1].slug}`} />
           </div>
         </div>
       </div>
 
-      <FontHeading label="Premier League" />
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-4">
-        {
-          sportNews.slice(1, 5).map((article, index) => (
-            <div class="flex flex-col bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
-              <div class="w-full h-40">
-                <img
-                  src={article.data.coverImage}
-                  alt={article.data.title}
-                  class="w-full h-full object-cover"
-                />
-              </div>
-
-              <div class="flex flex-col p-4 gap-2 h-full">
-                <h3 class="text-base font-semibold line-clamp-2">
-                  {article.data.title}
-                </h3>
-                <p class="text-sm font-body leading-relaxed text-white/50 line-clamp-2">
-                  {article.data.description}
-                </p>
-                <ReadMoreBtn href={`/sport/news/${article.slug}`} />
-              </div>
-            </div>
-          ))
-        }
-      </div>
+      <FourRowNewsAndHeader
+        label="Premier League"
+        articles={premierLeagueTopFourNews}
+      />
       <TwoColumnButton />
     </section>
   </main>

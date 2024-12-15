@@ -1,0 +1,39 @@
+---
+import { CollectionEntry } from "astro:content";
+import FontHeading from "./FontHeading.astro";
+import ReadMoreBtn from "./ReadMoreBtn.astro";
+
+export interface Props {
+  articles: CollectionEntry<"sport" | "blog">[];
+  label: string;
+}
+---
+
+<div class="w-full flex flex-col items-start">
+  <FontHeading label={Astro.props.label} />
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-4">
+    {
+      Astro.props.articles.map((article, index) => (
+        <div class="flex flex-col bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
+          <div class="w-full h-40">
+            <img
+              src={article.data.coverImage}
+              alt={article.data.title}
+              class="w-full h-full object-cover aspect-[261_/_160]"
+            />
+          </div>
+
+          <div class="flex flex-col p-4 gap-2 h-full">
+            <h3 class="text-base font-semibold line-clamp-2">
+              {article.data.title}
+            </h3>
+            <p class="text-sm font-body leading-relaxed text-white/50 line-clamp-2">
+              {article.data.description}
+            </p>
+            <ReadMoreBtn href={article.slug} />
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</div>
