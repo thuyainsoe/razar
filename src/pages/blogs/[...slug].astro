@@ -2,6 +2,7 @@
 import { getEntry } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import { formatDate } from "../../utils";
+import { getCollection } from "astro:content";
 const { slug } = Astro.params;
 
 if (slug === undefined) {
@@ -17,6 +18,12 @@ if (entry === undefined) {
 const { Content } = await entry.render();
 
 const publishedDate = formatDate(entry.data.publishedDate);
+
+export async function getStaticPaths() {
+  const blogs = await getCollection("blog");
+  return blogs.map(({ slug }) => ({ params: { slug } }));
+}
+export const prerender = true;
 ---
 
 <Layout
