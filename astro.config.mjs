@@ -10,14 +10,7 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [
-    tailwind(),
-    icon(),
-    alpinejs(),
-    sitemap({
-      entryLimit: 50000, // Helps generate sitemap-index.xml
-    }),
-  ],
+  integrations: [tailwind(), icon(), alpinejs(), sitemap()],
   output: "server",
   adapter: vercel(),
   site: "https://www.razarinfo.online",
@@ -36,5 +29,8 @@ export default defineConfig({
         access: "public",
       }),
     },
+  },
+  vite: {
+    assetsInclude: ["**/*.xml"], // Ensures .xml files aren't ignored
   },
 });
