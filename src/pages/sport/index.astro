@@ -38,7 +38,7 @@ console.log(premierLeagueTopFourNews.length);
           <!-- Blog Image -->
           <div class="w-full md:w-1/2 h-full">
             <img
-              src={sportNews[1].data.coverImage}
+              src={sportNews[2].data.coverImage}
               alt="Featured Blog"
               class="w-full h-full rounded-lg shadow-lg object-cover"
             />
@@ -51,7 +51,7 @@ console.log(premierLeagueTopFourNews.length);
             <div class="w-full">
               <div class="flex flex-wrap gap-1 mb-2">
                 {
-                  sportNews[1].data.tags.map((tag, index) => (
+                  sportNews[2].data.tags.map((tag, index) => (
                     <span
                       class={`${index % 2 === 0 ? "bg-primary" : "bg-primary"} text-white px-2 py-1 rounded-md text-xs`}
                     >
@@ -63,13 +63,13 @@ console.log(premierLeagueTopFourNews.length);
               <h2
                 class="text-xl md:text-2xl font-semibold tracking-wide leading-tight"
               >
-                {sportNews[1].data.title}
+                {sportNews[2].data.title}
               </h2>
             </div>
             <p class="text-sm font-body leading-relaxed text-white/50">
-              {sportNews[1].data.description}
+              {sportNews[2].data.description}
             </p>
-            <ReadMoreBtn href={`/sport/news/${sportNews[1].slug}`} />
+            <ReadMoreBtn href={`/sport/news/${sportNews[2].slug}`} />
           </div>
         </div>
       </div>
