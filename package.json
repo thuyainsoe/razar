@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "postbuild": "cp dist/client/sitemap-index.xml .output/static/sitemap-index.xml",
     "astro": "astro"
   },
   "dependencies": {
