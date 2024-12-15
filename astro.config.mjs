@@ -11,7 +11,7 @@ import sitemap from "@astrojs/sitemap";
 // https://astro.build/config
 export default defineConfig({
   integrations: [tailwind(), icon(), alpinejs(), sitemap()],
-  output: "server",
+  output: "static",
   adapter: vercel(),
   site: "https://www.razarinfo.online",
   env: {
