@@ -6,17 +6,14 @@ import alpinejs from "@astrojs/alpinejs";
 import vercel from "@astrojs/vercel/serverless";
 import { loadEnv } from "vite";
 
-const { PUBLIC_EMAILJS_USER_ID } = loadEnv(
-  process.env.PUBLIC_EMAILJS_USER_ID,
-  process.cwd(),
-  "",
-);
+import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind(), icon(), alpinejs()],
+  integrations: [tailwind(), icon(), alpinejs(), sitemap()],
   output: "server",
   adapter: vercel(),
+  site: "https://www.razarinfo.online",
   env: {
     schema: {
       PUBLIC_EMAILJS_USER_ID: envField.string({
