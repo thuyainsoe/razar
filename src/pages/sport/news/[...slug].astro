@@ -2,6 +2,8 @@
 import { getCollection, getEntry } from "astro:content";
 import Layout from "../../../layouts/Layout.astro";
 import { formatDate } from "../../../utils";
+import FontHeading from "../../../components/FontHeading.astro";
+import { Image } from "astro:assets";
 const { slug } = Astro.params;
 
 if (slug === undefined) {
@@ -16,7 +18,12 @@ if (entry === undefined) {
 
 const { Content } = await entry.render();
 
+const sports = await getCollection("sport");
+
+const relatedPosts = sports.filter((post) => post.slug !== slug).slice(0, 5);
+
 const publishedDate = formatDate(entry.data.publishedDate);
+
 export async function getStaticPaths() {
   const blogs = await getCollection("sport");
   return blogs.map(({ slug }) => ({ params: { slug } }));
@@ -32,7 +39,7 @@ export const prerender = true;
   keywords={entry.data.keywords}
 >
   <div
-    class="w-full main-container grid grid-cols-1 md:grid-cols-4 gap-5 blog-content"
+    class="w-full main-container grid grid-cols-1 md:grid-cols-4 gap-5 blog-content py-8 md:py-12"
   >
     <!-- Main Blog Content (Left Side) -->
     <div class="col-span-1 md:col-span-3">
@@ -86,9 +93,35 @@ export const prerender = true;
       </footer>
     </div>
 
-    <!-- Sidebar (Right Side) -->
-    <div class="col-span-1 hidden md:block">
-      <!-- Empty sidebar or placeholder -->
+    <div class="col-span-1 md:col-span-1 md:block">
+      <div class="text-text rounded-lg shadow-md">
+        <!-- Section Heading -->
+        <FontHeading label="Other News" />
+
+        <div class="space-y-6 mt-4">
+          {
+            relatedPosts.map((post) => (
+              <div class="flex flex-col items-left text-left bg-gray-800 rounded-md">
+                <Image
+                  src={post.data.coverImage}
+                  alt={post.data.title}
+                  class="rounded-md w-full h-auto object-cover aspect-[3_/_2]"
+                  width={200}
+                  height={200}
+                />
+                <div class="px-3 py-4 flex flex-col gap-[10px]">
+                  <h4 class="text-base font-semibold text-white transition line-clamp-2">
+                    <a href={`/blogs/${post.slug}`}>{post.data.title}</a>
+                  </h4>
+                  <p class="text-sm text-text/80 !my-0 line-clamp-3">
+                    {post.data.description}
+                  </p>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
     </div>
   </div>
 </Layout>
