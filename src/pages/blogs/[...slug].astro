@@ -1,0 +1,89 @@
+---
+import { getEntry } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import { formatDate } from "../../utils";
+const { slug } = Astro.params;
+
+if (slug === undefined) {
+  throw new Error("Slug is required");
+}
+
+const entry = await getEntry("blog", slug);
+
+if (entry === undefined) {
+  return Astro.redirect("/404");
+}
+
+const { Content } = await entry.render();
+
+const publishedDate = formatDate(entry.data.publishedDate);
+---
+
+<Layout
+  title={`Razar - ${entry.data.title}`}
+  description={entry.data.description}
+  metaUrl={`https://www.razarinfo.online/blogs/${slug}`}
+  metaImage={`https://www.razarinfo.online${entry.data.coverImage}`}
+  keywords={entry.data.keywords}
+>
+  <div
+    class="w-full main-container grid grid-cols-1 md:grid-cols-4 gap-5 blog-content"
+  >
+    <!-- Main Blog Content (Left Side) -->
+    <div class="col-span-1 md:col-span-3">
+      <header class="text-white pt-10">
+        <div class="container mx-auto">
+          <h1 class="text-4xl font-bold">{entry.data.title}</h1>
+          <p class="mt-4 text-base">{entry.data.description}</p>
+          <div class="flex flex-wrap items-center gap-2 mt-6 text-sm">
+            <span>By {entry.data.author}</span>
+            <span>|</span>
+            <span>{publishedDate}</span>
+            <span>|</span>
+            <ul class="flex flex-wrap gap-2">
+              {
+                entry.data.tags.map((tag, index) => (
+                  <li
+                    class={`${index % 2 === 0 ? "bg-highlight" : "bg-highlight"} text-white px-2 py-1 rounded-md text-xs`}
+                  >
+                    {tag}
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+        </div>
+      </header>
+
+      <main class="mx-auto py-10">
+        <img
+          src={entry.data.coverImage}
+          alt={`Cover image for ${entry.data.title}`}
+          class="w-full h-auto rounded-lg shadow-lg mb-8 aspect-[3/2] object-cover"
+        />
+        <Content />
+      </main>
+
+      <footer class="bg-dark text-white pb-10">
+        <div class="container mx-auto">
+          <p>
+            Written by <span class="font-semibold text-highlight"
+              >{entry.data.author}</span
+            >
+          </p>
+          <p>
+            Published on:
+            <time datetime="{entry.data.publishedDate}"
+              >{entry.data.publishedDate}</time
+            >
+          </p>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Sidebar (Right Side) -->
+    <div class="col-span-1 hidden md:block">
+      <!-- Empty sidebar or placeholder -->
+    </div>
+  </div>
+</Layout>
