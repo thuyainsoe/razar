@@ -12,6 +12,7 @@ import sitemap from "@astrojs/sitemap";
 export default defineConfig({
   integrations: [tailwind(), icon(), alpinejs(), sitemap()],
   output: "server",
+  buildOutput: "static" | "server",
   adapter: vercel(),
   site: "https://www.razarinfo.online",
   env: {
