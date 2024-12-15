@@ -2,7 +2,7 @@
 title: "Diogo Jota's Comeback Goal Rescues 10-Man Liverpool Against Fulham"
 description: "A thrilling encounter at Anfield as Diogo Jota's late goal salvages a point for 10-man Liverpool against Fulham, with Andrew Robertson's red card taking center stage."
 publishedDate: "2024-12-15"
-coverImage: "/images/sport/new5.png"
+coverImage: "/images/sport/reduced_new5.png"
 author: "Ryan"
 tags: ["Premier League", "Liverpool", "Fulham", "Diogo Jota"]
 keywords: "Liverpool, Fulham, Diogo Jota, Andrew Robertson, Premier League, Anfield, Arne Slot, Cody Gakpo, football match review"
