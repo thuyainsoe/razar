@@ -1,6 +1,6 @@
 ---
 import PlayerTable from "../PlayerTable.astro";
-import { playerData } from "../../data/player";
+import { philippinesPlayer } from "../../data/player";
 
 import { getCollection } from "astro:content";
 import { CollectionEntry } from "astro:content";
@@ -22,7 +22,7 @@ const otherArticles: CollectionEntry<"blog">[] = allBlogArticles.slice(4, 7);
   <div class="col-[1/5] lg:col-[1/4] w-full">
     <section id="stats" class="text-text min-h-[50vh] w-full">
       <div class="flex flex-row items-center justify-between w-full mb-4">
-        <FontHeading label="Players In Myanmar" />
+        <FontHeading label="Players In Philippines" />
         <a
           href="/players"
           class="text-text text-xs uppercase py-1 px-2 rounded hover:bg-orange-500 transition-all"
@@ -31,7 +31,7 @@ const otherArticles: CollectionEntry<"blog">[] = allBlogArticles.slice(4, 7);
         </a>
       </div>
       <!-- Scrollable Table Wrapper -->
-      <PlayerTable playerData={playerData.slice(0, 10)} />
+      <PlayerTable playerData={philippinesPlayer.slice(0, 10)} />
     </section>
   </div>
 

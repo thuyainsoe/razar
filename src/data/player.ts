@@ -668,7 +668,7 @@ const myanmarPlayer = [
   },
 ];
 
-const philippinesPlayer = [
+export const philippinesPlayer = [
   {
     name: "Frediemar Serafico",
     ingame_name: "3MarTzy",
