@@ -106,6 +106,11 @@ interface Props {
       rel="stylesheet"
     />
     <link
+      href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
@@ -131,16 +136,21 @@ interface Props {
 <style is:global>
   html,
   body {
-    font-family: "Inter", "Poppins", "Bebas Neue", sans-serif;
-    @apply bg-background text-text font-sans;
+    font-family: "Source Serif Pro", Georgia, Cambria, "Times New Roman", Times,
+      serif;
+    @apply bg-background text-text;
   }
 
   .main-container {
     @apply px-[20px] lg:px-[5%];
   }
 
-  .blog-content p {
-    @apply font-sans;
+  .blog-content p,
+  .blog-content li {
+    line-height: 180%;
+    font-family: "Source Serif Pro", Georgia, Cambria, "Times New Roman", Times,
+      serif;
+    /* @apply font-sans; */
   }
 
   .blog-content h2 {
@@ -148,6 +158,7 @@ interface Props {
     font-size: 1.8rem;
     line-height: 130%;
     font-weight: bolder;
-    @apply font-sans;
+    font-family: "Source Serif Pro", Georgia, Cambria, "Times New Roman", Times,
+      serif;
   }
 </style>

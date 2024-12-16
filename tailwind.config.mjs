@@ -13,7 +13,7 @@ export default {
       },
       fontFamily: {
         heading: ["Bebas Neue", "sans-serif"], // For titles and headings
-        body: ["Poppins", "sans-serif"], // For body text and paragraphs
+        // body: ["Poppins", "sans-serif"], // For body text and paragraphs
         sans: ["Inter", "sans-serif"], // For general sans-serif font usage
       },
     },
