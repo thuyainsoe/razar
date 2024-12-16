@@ -8,6 +8,7 @@ const {
   metaImage = "https://www.razarinfo.online/images/logo_d.png",
   description = "Dive into a world of eSports, football, IT, and more with exclusive player insights, expert guides, and real-time updates. Stay informed, stay ahead!",
   keywords = "Player Insights, Game Strategies, Tech Trends, eSports News, Football Insights, IT News, Expert Game Guides, Real-Time Updates, eSports Tips, Football News, IT Trends 2024, Latest eSports Updates, Gaming Insights, Expert Player Guides, Latest Tech News, Game Strategies for Pro Players, eSports Analysis, Football Analysis, Online Game Strategies, Digital Trends in Gaming, Pro Player Tips, Competitive Gaming Tips",
+  updatedTime = new Date().toISOString(),
 } = Astro.props;
 
 const fbAppId = "898096579195691";
@@ -20,7 +21,7 @@ const ldJson = {
   url: metaUrl,
   image: metaImage,
   datePublished: "2024-12-11T06:17:59+00:00",
-  dateModified: "2024-12-14T10:47:49+00:00",
+  dateModified: "2024-12-16T10:47:49+00:00",
   author: {
     "@type": "Person",
     name: "Ryan",
@@ -41,6 +42,7 @@ interface Props {
   metaImage?: string;
   description?: string;
   keywords?: string;
+  updatedTime?: string;
 }
 ---
 
@@ -53,12 +55,13 @@ interface Props {
     <!-- SEO Metadata -->
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
-    <meta name="keywords" content={keywords} />
+    <!-- <meta name="keywords" content={keywords} /> -->
     <meta name="robots" content="index, follow" />
     <meta name="author" content="Razar Team" />
     <meta name="generator" content={Astro.generator} />
     <link rel="icon" href="/favicon.ico" />
     <link rel="canonical" href={metaUrl} />
+    <meta property="og:updated_time" content={updatedTime} />
 
     <!-- Open Graph (OG) / Facebook -->
     <meta property="og:title" content={title} />
