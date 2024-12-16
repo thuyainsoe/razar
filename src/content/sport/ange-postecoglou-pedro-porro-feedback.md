@@ -6,7 +6,7 @@ coverImage: "/images/sport/new2.png"
 author: "Ryan"
 tags: ["Europa League", "Tottenham", "Ange Postecoglou", "Premier League"]
 keywords: "Tottenham, Ange Postecoglou, Pedro Porro, Rangers, Europa League, football tactics, player development"
-slug: "ange-postecoglou-feedback-pedro-porro"
+slug: ange-postecoglou-feedback-pedro-porro
 ---
 
 ## Ange Postecoglou's Feedback to Pedro Porro

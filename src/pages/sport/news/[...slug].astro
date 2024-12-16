@@ -20,7 +20,10 @@ const { Content } = await entry.render();
 
 const sports = await getCollection("sport");
 
-const relatedPosts = sports.filter((post) => post.slug !== slug).slice(0, 5);
+const relatedPosts = sports
+  .filter((post) => post.slug !== slug)
+  .slice(0, 5)
+  .map((item) => ({ ...item, slug: `${item.slug}` }));
 
 const publishedDate = formatDate(entry.data.publishedDate);
 
@@ -111,7 +114,7 @@ export const prerender = true;
                 />
                 <div class="px-3 py-4 flex flex-col gap-[10px]">
                   <h4 class="text-base font-semibold text-white transition line-clamp-2">
-                    <a href={`/blogs/${post.slug}`}>{post.data.title}</a>
+                    <a href={`/sport/news/${post.slug}`}>{post.data.title}</a>
                   </h4>
                   <p class="text-sm text-text/80 !my-0 line-clamp-3">
                     {post.data.description}
