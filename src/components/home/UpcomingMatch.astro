@@ -33,7 +33,7 @@ const upcomingMatches = [
 ]
 ---
 
-<section class="my-8 sm:my-12 bg-gray-900">
+<section class="my-8 sm:my-12 ">
   <div class="w-full">
     <!-- Title -->
     <FontHeading label="Mobile Legend Upcoming Matches" />
@@ -42,26 +42,26 @@ const upcomingMatches = [
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mt-4">
       {upcomingMatches.map((match, index) => (
         <div 
-          class="flex flex-row items-center bg-gray-800 p-4 sm:p-6 
-          rounded-lg shadow-md transform transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg"
+          class="flex flex-row items-center  p-4 sm:p-6  shadow-md
+          rounded-lg transform transition-transform duration-300 border"
         >
           <!-- Date -->
           <span 
-            class="block text-gray-400 mr-4 text-xs sm:text-sm  sm:w-auto"
+            class="block  mr-4 text-xs sm:text-sm  sm:w-auto"
           >
             {match.date}
           </span>
 
           <!-- Match Info -->
           <span 
-            class="flex-1 font-normal text-sm sm:text-base text-left"
+            class="flex-1 font-semibold text-sm sm:text-base text-left"
           >
             {match.match}
           </span>
 
           <!-- Time -->
           <span 
-            class="text-highlight text-sm sm:text-base font-semibold mt-2 sm:mt-0"
+            class=" text-sm sm:text-base font-semibold mt-2 sm:mt-0"
           >
             {match.time}
           </span>

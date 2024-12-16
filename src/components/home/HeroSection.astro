@@ -28,14 +28,14 @@ const recentThreeArticle: CollectionEntry<"blog">[] = allBlogArticles.slice(
       label="Unleash the Power of Knowledge with Player Insights, Game Strategies & Tech Trends"
     />
     <p
-      class="font-body text-left text-base sm:text-base mb-6 relative text-white/90 mt-4"
+      class="font-body text-left text-base sm:text-base mb-6 relative text-text/90 mt-4"
     >
       Dive into a world of eSports, football, IT, and more with exclusive player
       insights, expert guides, and real-time updates. Stay informed, stay ahead!
     </p>
     <a
       href="/blogs"
-      class="inline-block bg-highlight text-white px-4 py-2 rounded-sm font-medium text-base hover:bg-highlight/90 transition"
+      class="inline-block bg-primary text-white px-4 py-2 rounded-sm font-medium text-base hover:bg-highlight/90 transition"
     >
       Read More Articles
     </a>
@@ -49,7 +49,7 @@ const recentThreeArticle: CollectionEntry<"blog">[] = allBlogArticles.slice(
           <div class="swiper-slide">
             <div
               style={`background-image: url('${article.data.coverImage}')`}
-              class={`w-full h-[300px] sm:h-[400px] md:h-full bg-red-500  bg-cover bg-center relative`}
+              class={`w-full h-[300px] sm:h-[400px] md:h-full  bg-cover bg-center relative`}
             >
               <div class="absolute inset-0 bg-black bg-opacity-60 p-4 sm:p-6 md:p-8 flex flex-col justify-end">
                 <div class="flex flex-wrap gap-2 mb-4">
@@ -67,7 +67,12 @@ const recentThreeArticle: CollectionEntry<"blog">[] = allBlogArticles.slice(
                 <p class="text-sm text-white/80 mb-4 line-clamp-2">
                   {article.data.description}
                 </p>
-                <ReadMoreBtn href={`/blogs/${article?.slug}`} />
+                <a
+                  href={`/blogs/${article?.slug}`}
+                  class="text-white text-sm font-semibold hover:text-highlight"
+                >
+                  Read More →
+                </a>
               </div>
             </div>
           </div>

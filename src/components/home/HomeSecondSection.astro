@@ -41,11 +41,11 @@ const otherArticles: CollectionEntry<"blog">[] = allBlogArticles.slice(4, 7);
     <div class="flex flex-col gap-5 mt-4">
       {
         otherArticles.map((blog, index) => (
-          <div class="bg-gray-800 p-4 rounded-md shadow-md bg-cover bg-center relative">
-            <h3 class="text-base sm:text-base mb-2 line-clamp-2">
+          <div class="p-4 rounded-md shadow-md bg-cover bg-center relative  border">
+            <h3 class="text-base sm:text-base mb-2 line-clamp-2 font-semibold underline">
               {blog.data.title}
             </h3>
-            <p class="text-sm  text-gray-400 mb-4 line-clamp-2">
+            <p class="text-sm  text-text/50 mb-4 line-clamp-2">
               {blog.data.description}
             </p>
             <ReadMoreBtn href={`/blogs/${blog.slug}`} />

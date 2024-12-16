@@ -4,17 +4,17 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Custom colors for your Mobile Legends site
-        background: "#0F172A", // Dark Blue-Black for background
-        primary: "#0A1122", // Electric Blue for navbar, buttons, and accents
-        text: "#E5E7EB", // Off-White/Light Gray for text
-        highlight: "#F97316", // Neon Orange for status, notifications, etc.
-        secondary: "#A855F7", // Soft Purple for optional highlights
+        // Custom colors for a clean white & black website
+        background: "#FFFFFF", // Pure white background
+        primary: "#242424", // Pure black for primary elements like text and headings
+        text: "#1A1A1A", // Near-black for readable body text (softer on the eyes)
+        highlight: "#F97316", // Optional highlight color (can be used for buttons, status, etc.)
+        secondary: "#666666", // Softer gray for subtitles, placeholders, etc.
       },
       fontFamily: {
         heading: ["Bebas Neue", "sans-serif"], // For titles and headings
         body: ["Poppins", "sans-serif"], // For body text and paragraphs
-        sans: ["Inter", "sans-serif"],
+        sans: ["Inter", "sans-serif"], // For general sans-serif font usage
       },
     },
   },

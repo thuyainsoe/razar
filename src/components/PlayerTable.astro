@@ -10,45 +10,39 @@ interface Props {
 ---
 
 <div class="overflow-x-auto w-full text-nowrap">
-  <table class="table-auto w-full border-collapse border border-primary">
-    <thead>
-      <tr class="bg-primary text-left">
-        <!-- <th class="p-2 sm:p-3 text-sm sm:text-base border border-primary">No</th
+  <table class="table-auto w-full border">
+    <thead class="bg-primary text-white">
+      <tr class="text-left">
+        <!-- <th class="p-2 sm:p-3 text-sm sm:text-base border ">No</th
         > -->
-        <th class="p-2 sm:p-3 text-sm sm:text-base border border-primary"
-          >Country</th
-        >
-        <th class="p-2 sm:p-3 text-sm sm:text-base border border-primary"
-          >Ingame Name</th
-        >
-        <th class="p-2 sm:p-3 text-sm sm:text-base border border-primary"
-          >Name</th
-        >
-        <th class="p-2 sm:p-3 text-sm sm:text-base border border-primary"
-          >Team</th
-        >
+        <th class="p-2 sm:p-3 text-sm sm:text-base">Country</th>
+        <th class="p-2 sm:p-3 text-sm sm:text-base">Ingame Name</th>
+        <th class="p-2 sm:p-3 text-sm sm:text-base">Name</th>
+        <th class="p-2 sm:p-3 text-sm sm:text-base">Team</th>
       </tr>
     </thead>
 
-    <tbody>
+    <tbody class="border">
       {
         playerData.map((player, index) => (
-          <tr class="hover:bg-gray-800 transition-all">
+          <tr class="border">
             {/* <td class="p-2 sm:p-3 text-sm">{index + 1}</td> */}
-            <td class="p-2 sm:p-3 text-lg sm:text-xl font-semibold">
+            <td class="p-2 sm:p-3 text-lg sm:text-xl font-medium">
               {player.country.logo}
             </td>
-            <td class="p-2 sm:p-3 text-sm sm:text-base font-semibold text-highlight cursor-pointer">
+            <td class="p-2 sm:p-3 text-sm sm:text-base font-medium cursor-pointer hover:text-highlight">
               {player.slug ? (
-                <a href={`/players/${player.slug}`}>{player.ingame_name}</a>
+                <a class="underline" href={`/players/${player.slug}`}>
+                  {player.ingame_name}
+                </a>
               ) : (
-                player.ingame_name
+                <span class="underline">{player.ingame_name}</span>
               )}
             </td>
-            <td class="p-2 sm:p-3 text-white text-sm sm:text-base font-semibold">
+            <td class="p-2 sm:p-3  text-sm sm:text-base font-medium">
               {player.name}
             </td>
-            <td class="p-2 sm:p-3 text-sm sm:text-base font-semibold flex items-center gap-2">
+            <td class="p-2 sm:p-3 text-sm sm:text-base font-medium flex items-center gap-2">
               {player.team && (
                 <>
                   <Image

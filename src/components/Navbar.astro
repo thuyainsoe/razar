@@ -17,12 +17,12 @@ import logo from "../images/logo_d.png";
       width={70}
       height={70}
     />
-    <span class="font-heading text-2xl tracking-wider">Razar</span>
+    <span class="font-heading text-2xl tracking-wider text-white">Razar</span>
   </div>
 
   <!-- Desktop Navigation -->
   <nav class="hidden md:block">
-    <ul class="flex items-center gap-2 text-xl font-heading text-text">
+    <ul class="flex items-center gap-2 text-xl font-heading text-white">
       <li class="px-2">
         <a
           href="/"
@@ -92,7 +92,7 @@ import logo from "../images/logo_d.png";
       fill="none"
       viewBox="0 0 24 24"
       stroke-width="2"
-      stroke="currentColor"
+      stroke="#fff"
       class="w-6 h-6"
     >
       <path
@@ -108,7 +108,9 @@ import logo from "../images/logo_d.png";
     class="fixed top-0 right-0 w-full h-full bg-background z-50 flex md:hidden transform transition-transform duration-500 ease-in-out"
   >
     <div class="w-full h-full flex flex-col items-start">
-      <div class="w-full flex items-center justify-between py-4 px-[20px]">
+      <div
+        class="w-full flex items-center justify-between py-4 px-[20px] bg-primary"
+      >
         <div class="flex items-center">
           <Image
             src={logo}
@@ -117,22 +119,25 @@ import logo from "../images/logo_d.png";
             width={70}
             height={70}
           />
-          <span class="font-heading text-2xl tracking-wider">Razar</span>
+          <span class="font-heading text-2xl tracking-wider text-white"
+            >Razar</span
+          >
         </div>
         <button
           @click="open = false"
-          class="p-2 text-highlight focus:outline-none focus:ring-2 focus:ring-highlight rounded-lg hover:shadow-glow transition-transform duration-200"
+          class="p-2 focus:outline-none focus:ring-2 rounded-lg hover:shadow-glow transition-transform duration-200"
           aria-label="Close Menu"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            fill="none"
+            fill="#fff"
             viewBox="0 0 24 24"
             stroke-width="2"
-            stroke="currentColor"
+            stroke="#fff"
             class="w-6 h-6"
           >
             <path
+              fill="#fff"
               stroke-linecap="round"
               stroke-linejoin="round"
               d="M6 18L18 6M6 6l12 12"></path>
@@ -178,19 +183,19 @@ import logo from "../images/logo_d.png";
           >
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"
               ><path
-                fill="#F97316"
+                fill="#000"
                 d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z"
               ></path></svg
             >
           </div>
           <ul
             :class="isEsportClick ? 'flex' : 'hidden'"
-            class="col-span-2 mt-4 flex-col items-start gap-3 p-3 rounded-[4px] bg-primary"
+            class="col-span-2 mt-0 flex-col items-start gap-3 p-3 rounded-[4px] text-text"
           >
-            <li class="pl-2">
+            <li class="pl-1">
               <a href="/players">Player</a>
             </li>
-            <li class="pl-2">
+            <li class="pl-1">
               <a href="/esport/schedule">Schedule</a>
             </li>
           </ul>
