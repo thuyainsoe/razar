@@ -1,0 +1,117 @@
+---
+import { CollectionEntry } from "astro:content";
+import FontHeading from "../../../components/FontHeading.astro";
+import Layout from "../../../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+import { ARTICLES_PER_PAGE } from "../../../constants";
+import ReadMoreBtn from "../../../components/ReadMoreBtn.astro";
+const currentPage: number = +Astro.url.searchParams.get("page")! || 1;
+
+const allBlogArticles: CollectionEntry<"sport">[] = (
+  await getCollection("sport")
+).sort(
+  (a: CollectionEntry<"sport">, b: CollectionEntry<"sport">) =>
+    b.data.publishedDate.valueOf() - a.data.publishedDate.valueOf(),
+);
+
+const totalPages: number = Math.ceil(
+  allBlogArticles.length / ARTICLES_PER_PAGE,
+);
+
+const articlesForPage: CollectionEntry<"sport">[] = allBlogArticles
+  .filter((newsItem) => {
+    return newsItem.data.tags.includes("Premier League");
+  })
+  .slice(
+    (currentPage - 1) * ARTICLES_PER_PAGE,
+    currentPage * ARTICLES_PER_PAGE,
+  );
+---
+
+<Layout>
+  <section class="main-container mx-auto px-4 py-10">
+    <FontHeading label="Premier League" />
+
+    <!-- Blog Grid -->
+    <div
+      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-4"
+    >
+      {
+        articlesForPage.map((article) => (
+          <article class="shadow-md rounded-md overflow-hidden transition-transform transform border">
+            <a href={`/sport/news/${article.slug}`} class="block">
+              <img
+                src={article.data.coverImage}
+                alt={article.data.title}
+                class="w-full h-40 object-cover"
+              />
+            </a>
+            <div class="p-4">
+              <h2 class="text-lg font-bold mb-2 line-clamp-2">
+                <a
+                  class="underline"
+                  href={`/sport/news/${article.slug}`}
+                  class="hover:text-highlight transition"
+                >
+                  {article.data.title}
+                </a>
+              </h2>
+              <p class="text-sm text-gray-500 mb-4 line-clamp-2">
+                {article.data.description}
+              </p>
+
+              {/* <div class="flex flex-wrap gap-2 mb-4">
+                {article.data.tags.map((tag, index) => (
+                  <span
+                    class={`${index % 2 === 0 ? "bg-primary" : "bg-primary"} text-white px-2 py-1 rounded-md text-xs`}
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div> */}
+              <ReadMoreBtn href={`/sport/news/${article.slug}`} />
+            </div>
+          </article>
+        ))
+      }
+    </div>
+
+    <!-- Pagination -->
+    <div class="flex justify-center items-center mt-10 space-x-4">
+      {
+        currentPage > 1 && (
+          <a
+            href={`/blogs?page=${currentPage - 1}`}
+            class="px-4 py-2 bg-primary text-white rounded-md hover:bg-opacity-80 transition"
+          >
+            Previous
+          </a>
+        )
+      }
+
+      <div class="flex items-center space-x-2">
+        {
+          Array.from({ length: totalPages }, (_, i) => (
+            <a
+              href={`/blogs?page=${i + 1}`}
+              class={`px-3 py-2 rounded-md ${currentPage === i + 1 ? "bg-highlight text-white" : "bg-primary  text-white"}`}
+            >
+              {i + 1}
+            </a>
+          ))
+        }
+      </div>
+
+      {
+        currentPage < totalPages && (
+          <a
+            href={`/blogs?page=${currentPage + 1}`}
+            class="px-4 py-2 bg-primary text-white rounded-md hover:bg-opacity-80 transition"
+          >
+            Next
+          </a>
+        )
+      }
+    </div>
+  </section>
+</Layout>

@@ -31,13 +31,22 @@ import logo from "../images/logo_d.png";
           Home
         </a>
       </li>
-      <li class="px-2">
+      <li class="h-[70px] flex items-center group relative px-2">
         <a
           href="/sport"
           class="relative hover:text-highlight transition-all hover:shadow-highlight"
         >
           SPORT
         </a>
+        <ul
+          class="absolute top-[100%] w-fit left-0 pl-2 pr-8 bg-primary shadow-sm shadow-highlight hidden group-hover:flex flex-col items-start"
+        >
+          <li
+            class="cursor-pointer py-1 hover:text-highlight transition-all duration-100 text-nowrap"
+          >
+            <a href="/sport/premier-league">Premier League</a>
+          </li>
+        </ul>
       </li>
       <!-- <li class="px-2">
         <a

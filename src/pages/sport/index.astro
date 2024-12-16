@@ -17,7 +17,8 @@ const premierLeagueTopFourNews = sportNews
   .filter((newsItem) => {
     return newsItem.data.tags.includes("Premier League");
   })
-  .map((item) => ({ ...item, slug: `/sport/news/${item.slug}` }));
+  .map((item) => ({ ...item, slug: `/sport/news/${item.slug}` }))
+  .slice(0, 4);
 ---
 
 <Layout>
@@ -74,8 +75,8 @@ const premierLeagueTopFourNews = sportNews
       <FourRowNewsAndHeader
         label="Premier League"
         articles={premierLeagueTopFourNews}
+        viewAllLink="/sport/premier-league"
       />
-      <TwoColumnButton />
     </section>
   </main>
 </Layout>
