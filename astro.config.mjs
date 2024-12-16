@@ -10,7 +10,17 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind(), icon(), alpinejs(), sitemap()],
+  integrations: [
+    tailwind(),
+    icon(),
+    alpinejs(),
+    sitemap({
+      serialize(item) {
+        item.lastmod = new Date();
+        return item;
+      },
+    }),
+  ],
   output: "server",
   adapter: vercel(),
   site: "https://www.razarinfo.online",
