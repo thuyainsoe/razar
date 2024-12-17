@@ -14,11 +14,11 @@ const sportNews: CollectionEntry<"sport">[] = (
 );
 
 const premierLeagueTopFourNews = sportNews
-  .filter((newsItem) => {
-    return newsItem.data.tags.includes("Premier League");
-  })
-  .map((item) => ({ ...item, slug: `/sport/news/${item.slug}` }))
-  .slice(0, 4);
+  .map((item) => ({
+    ...item,
+    slug: `/sport/news/${item.slug}`,
+  }))
+  .slice(1);
 ---
 
 <Layout>
@@ -36,7 +36,7 @@ const premierLeagueTopFourNews = sportNews
           <!-- Blog Image -->
           <div class="w-full md:w-1/2 h-full">
             <img
-              src={sportNews[2].data.coverImage}
+              src={sportNews[0].data.coverImage}
               alt="Featured Blog"
               class="w-full h-full shadow-lg object-cover"
             />
@@ -49,7 +49,7 @@ const premierLeagueTopFourNews = sportNews
             <div class="w-full">
               <div class="flex flex-wrap gap-1 mb-2">
                 {
-                  sportNews[2].data.tags.map((tag, index) => (
+                  sportNews[0].data.tags.map((tag, index) => (
                     <span
                       class={`${index % 2 === 0 ? "bg-primary" : "bg-primary"} text-white px-2 py-1 rounded-md text-xs`}
                     >
@@ -61,19 +61,31 @@ const premierLeagueTopFourNews = sportNews
               <h2
                 class="text-xl md:text-2xl font-semibold tracking-wide leading-tight"
               >
-                {sportNews[2].data.title}
+                {sportNews[0].data.title}
               </h2>
+              <p class="text-sm text-text/50">
+                {
+                  new Date(sportNews[0].data.publishedDate).toLocaleDateString(
+                    "en-GB",
+                    {
+                      day: "2-digit",
+                      month: "2-digit",
+                      year: "numeric",
+                    },
+                  )
+                }
+              </p>
             </div>
             <p class="text-sm font-body leading-relaxed text-text/50">
-              {sportNews[2].data.description}
+              {sportNews[0].data.description}
             </p>
-            <ReadMoreBtn href={`/sport/news/${sportNews[2].slug}`} />
+            <ReadMoreBtn href={`/sport/news/${sportNews[0].slug}`} />
           </div>
         </div>
       </div>
 
       <FourRowNewsAndHeader
-        label="Premier League"
+        label="Latest Sport News"
         articles={premierLeagueTopFourNews}
         viewAllLink="/sport/premier-league"
       />
