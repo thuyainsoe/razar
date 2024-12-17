@@ -14,10 +14,6 @@ const allBlogArticles: CollectionEntry<"sport">[] = (
     b.data.publishedDate.valueOf() - a.data.publishedDate.valueOf(),
 );
 
-const totalPages: number = Math.ceil(
-  allBlogArticles.length / ARTICLES_PER_PAGE,
-);
-
 const articlesForPage: CollectionEntry<"sport">[] = allBlogArticles
   .filter((newsItem) => {
     return newsItem.data.tags.includes("Premier League");
@@ -26,6 +22,10 @@ const articlesForPage: CollectionEntry<"sport">[] = allBlogArticles
     (currentPage - 1) * ARTICLES_PER_PAGE,
     currentPage * ARTICLES_PER_PAGE,
   );
+
+const totalPages: number = Math.ceil(
+  articlesForPage.length / ARTICLES_PER_PAGE,
+);
 ---
 
 <Layout>
@@ -81,7 +81,7 @@ const articlesForPage: CollectionEntry<"sport">[] = allBlogArticles
       {
         currentPage > 1 && (
           <a
-            href={`/blogs?page=${currentPage - 1}`}
+            href={`/sport/premier-league?page=${currentPage - 1}`}
             class="px-4 py-2 bg-primary text-white rounded-md hover:bg-opacity-80 transition"
           >
             Previous
@@ -93,7 +93,7 @@ const articlesForPage: CollectionEntry<"sport">[] = allBlogArticles
         {
           Array.from({ length: totalPages }, (_, i) => (
             <a
-              href={`/blogs?page=${i + 1}`}
+              href={`/sport/premier-league?page=${i + 1}`}
               class={`px-3 py-2 rounded-md ${currentPage === i + 1 ? "bg-highlight text-white" : "bg-primary  text-white"}`}
             >
               {i + 1}
@@ -105,7 +105,7 @@ const articlesForPage: CollectionEntry<"sport">[] = allBlogArticles
       {
         currentPage < totalPages && (
           <a
-            href={`/blogs?page=${currentPage + 1}`}
+            href={`/sport/premier-league?page=${currentPage + 1}`}
             class="px-4 py-2 bg-primary text-white rounded-md hover:bg-opacity-80 transition"
           >
             Next
