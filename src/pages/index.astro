@@ -14,6 +14,14 @@ const sportNews: CollectionEntry<"sport">[] = (
     b.data.publishedDate.valueOf() - a.data.publishedDate.valueOf(),
 );
 
+const techBlogs: CollectionEntry<"blog">[] = (await getCollection("blog"))
+  .sort(
+    (a: CollectionEntry<"blog">, b: CollectionEntry<"blog">) =>
+      b.data.publishedDate.valueOf() - a.data.publishedDate.valueOf(),
+  )
+  .slice(3, 11)
+  .map((item) => ({ ...item, slug: `/blogs/${item.slug}` }));
+
 const premierLeagueTopFourNews = sportNews
   .filter((newsItem) => {
     return newsItem.data.tags.includes("Premier League");
@@ -25,6 +33,13 @@ const premierLeagueTopFourNews = sportNews
 <Layout>
   <div class="w-full main-container">
     <HeroSection />
+    <div class="w-full mb-10">
+      <FourRowNewsAndHeader
+        label="Tech Blogs"
+        articles={techBlogs}
+        viewAllLink="/blogs"
+      />
+    </div>
     <FourRowNewsAndHeader
       label="Premier League"
       articles={premierLeagueTopFourNews}

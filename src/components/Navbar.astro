@@ -33,7 +33,6 @@ import logo from "../images/logo_d.png";
       </li>
       <li class="h-[70px] flex items-center group relative px-2">
         <a
-          href="/sport"
           class="relative hover:text-highlight transition-all hover:shadow-highlight"
         >
           SPORT
@@ -41,6 +40,11 @@ import logo from "../images/logo_d.png";
         <ul
           class="absolute top-[100%] w-fit left-0 pl-2 pr-8 bg-primary shadow-sm shadow-highlight hidden group-hover:flex flex-col items-start"
         >
+          <li
+            class="cursor-pointer py-1 hover:text-highlight transition-all duration-100 text-nowrap"
+          >
+            <a href="/sport/news">News</a>
+          </li>
           <li
             class="cursor-pointer py-1 hover:text-highlight transition-all duration-100 text-nowrap"
           >
@@ -168,9 +172,7 @@ import logo from "../images/logo_d.png";
           x-data="{isSportClick : false}"
           class="grid grid-cols-2 items-center w-full justify-between"
         >
-          <a
-            href="/sport"
-            class="hover:text-highlight transition-all hover:shadow-highlight"
+          <a class="hover:text-highlight transition-all hover:shadow-highlight"
             >Sport</a
           >
           <div
@@ -188,6 +190,9 @@ import logo from "../images/logo_d.png";
             :class="isSportClick ? 'flex' : 'hidden'"
             class="col-span-2 mt-0 flex-col items-start gap-3 p-3 rounded-[4px] text-text"
           >
+            <li class="pl-1">
+              <a href="/sport/news">News</a>
+            </li>
             <li class="pl-1">
               <a href="/sport/premier-league">Premier League</a>
             </li>

@@ -15,10 +15,10 @@ export default defineConfig({
     icon(),
     alpinejs(),
     sitemap({
-      // serialize(item) {
-      //   item.lastmod = new Date();
-      //   return item;
-      // },
+      serialize(item) {
+        item.lastmod = new Date();
+        return item;
+      },
     }),
   ],
   output: "server",

@@ -1,10 +1,10 @@
 ---
 import { CollectionEntry, getCollection } from "astro:content";
-import Layout from "../../layouts/Layout.astro";
-import ReadMoreBtn from "../../components/ReadMoreBtn.astro";
-import TwoColumnButton from "../../components/TwoColumnButton.astro";
-import FontHeading from "../../components/FontHeading.astro";
-import FourRowNewsAndHeader from "../../components/FourRowNewsAndHeader.astro";
+import Layout from "../../../layouts/Layout.astro";
+import ReadMoreBtn from "../../../components/ReadMoreBtn.astro";
+import TwoColumnButton from "../../../components/TwoColumnButton.astro";
+import FontHeading from "../../../components/FontHeading.astro";
+import FourRowNewsAndHeader from "../../../components/FourRowNewsAndHeader.astro";
 
 const sportNews: CollectionEntry<"sport">[] = (
   await getCollection("sport")
