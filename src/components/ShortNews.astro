@@ -1,0 +1,48 @@
+---
+const newsData = [
+  {
+    title:
+      "Late drama as Unal stunner cancels out Paqueta penalty in Bournemouth draw with West Ham",
+    category: "Premier League",
+    description:
+      "Late drama as Unal stunner cancels out Paqueta penalty in Bournemouth draw with West Ham",
+    time: "11 hours ago",
+  },
+  {
+    title:
+      "Holders England draw France, Netherlands and Wales in tough Euro 2025 group",
+    category: "Euro",
+    description:
+      "Holders England draw France, Netherlands and Wales in tough Euro 2025 group",
+    time: "13 hours ago",
+  },
+  {
+    title:
+      "Maguire 'positive' on Man Utd contract talks, expects 'big future' for derby star Diallo",
+    category: "Premier League",
+    description:
+      "Maguire 'positive' on Man Utd contract talks, expects 'big future' for derby star Diallo",
+    time: "a day ago",
+  },
+  {
+    title:
+      "Newcastle to do battle with Arsenal and Liverpool for £90m-rated Kudus – Paper Round",
+    category: "Transfers",
+    description:
+      "Newcastle to do battle with Arsenal and Liverpool for £90m-rated Kudus – Paper Round",
+    time: "Yesterday at 23:00",
+  },
+];
+---
+
+<div class="flex flex-col items-start gap-2 mb- w-full">
+  {
+    newsData.map((item, index) => (
+      <div class="w-full bg-background border shadow-sm p-4 rounded-md border-l-4 border-l-highlight">
+        <span class="text-xs text-text mb-2 block">{item.category}</span>
+
+        <p class="text-text text-base font-semibold">{item.description}</p>
+      </div>
+    ))
+  }
+</div>
