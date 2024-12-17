@@ -6,14 +6,18 @@ import ReadMoreBtn from "./ReadMoreBtn.astro";
 export interface Props {
   articles: CollectionEntry<"sport" | "blog">[];
   label: string;
-  viewAllLink: string;
+  viewAllLink?: string;
 }
 ---
 
 <div class="w-full flex flex-col items-start">
   <div class="w-full flex items-center justify-between">
     <FontHeading label={Astro.props.label} />
-    <a href={Astro.props.viewAllLink}>View All →</a>
+    {
+      Astro.props.viewAllLink && (
+        <a href={Astro.props.viewAllLink}>View All →</a>
+      )
+    }
   </div>
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-4">
     {

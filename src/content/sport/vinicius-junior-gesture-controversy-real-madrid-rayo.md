@@ -6,7 +6,7 @@ coverImage: "/images/sport/new9.webp"
 author: "Ryan"
 tags:
   [
-    "LaLiga",
+    "La Liga",
     "Vinícius Júnior",
     "Real Madrid",
     "Rayo Vallecano",

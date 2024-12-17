@@ -2,9 +2,9 @@
 import { CollectionEntry, getCollection } from "astro:content";
 import Layout from "../../../layouts/Layout.astro";
 import ReadMoreBtn from "../../../components/ReadMoreBtn.astro";
-import TwoColumnButton from "../../../components/TwoColumnButton.astro";
 import FontHeading from "../../../components/FontHeading.astro";
 import FourRowNewsAndHeader from "../../../components/FourRowNewsAndHeader.astro";
+import LeagueTable from "../../../components/LeagueTable.astro";
 
 const sportNews: CollectionEntry<"sport">[] = (
   await getCollection("sport")
@@ -27,7 +27,6 @@ const premierLeagueTopFourNews = sportNews
       class="relative bg-background text-text flex flex-col main-container"
     >
       <FontHeading label="Recent Sports New" />
-
       <div class="relative z-10 mx-auto border mt-4 mb-10 shadow-lg">
         <!-- Featured Blog Post -->
         <div
@@ -87,8 +86,14 @@ const premierLeagueTopFourNews = sportNews
       <FourRowNewsAndHeader
         label="Latest Sport News"
         articles={premierLeagueTopFourNews}
-        viewAllLink="/sport/premier-league"
       />
+
+      <div class="w-full grid md:grid-cols-4 mt-10">
+        <div class="col-span-1 md:col-span-2 flex flex-col items-start gap-y-2">
+          <FontHeading label="Premier League Table" />
+          <LeagueTable />
+        </div>
+      </div>
     </section>
   </main>
 </Layout>

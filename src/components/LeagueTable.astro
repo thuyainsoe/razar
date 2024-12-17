@@ -1,0 +1,53 @@
+---
+import { Image } from "astro:assets";
+import { premierLeagueTableData } from "../data/premierLeagueTable";
+---
+
+<div class="container mx-auto">
+  <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+    <table class="min-w-full text-sm text-gray-600">
+      <thead class="bg-primary text-white">
+        <tr>
+          <th class="py-2 px-2 text-center">#</th>
+          <th class="py-2 px-2 text-left">Team</th>
+          <th class="py-2 px-2 text-center">PL</th>
+          <th class="py-2 px-2 text-center">+/-</th>
+          <th class="py-2 px-2 text-center">GD</th>
+          <th class="py-2 px-2 text-center">PTS</th>
+        </tr>
+      </thead>
+      <tbody>
+        {
+          premierLeagueTableData.map((team) => (
+            <tr class="border-t border-b hover:bg-gray-50">
+              <td
+                class={`py-2 px-2 text-center border-l-[2px] ${
+                  team.position <= 4
+                    ? "border-green-500"
+                    : team.position >= 18
+                      ? "border-red-500"
+                      : "border-gray-300"
+                }`}
+              >
+                {team.position}
+              </td>
+              <td class="py-2 px-2 flex items-center gap-1">
+                <Image
+                  src={team.image}
+                  alt={team.team}
+                  width={20}
+                  height={20}
+                />
+                {team.team}
+              </td>
+              <td class="py-2 px-2 text-center">{team.matchesPlayed}</td>
+              <td class="py-2 px-2 text-center text-nowrap">{`${team.goalsScored} - ${team.goalsConceded}`}</td>
+              <td class="py-2 px-2 text-center">{team.goalDifference}</td>
+              <td class="py-2 px-2 text-center">{team.points}</td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+  </div>
+</div>
