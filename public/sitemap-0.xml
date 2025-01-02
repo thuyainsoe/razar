@@ -145,4 +145,17 @@
 	<url>
 		<loc>https://www.razarinfo.online/terms/</loc>
 	</url>
+    <!-- start -->
+    <url>
+		<loc>https://www.razarinfo.online/blogs/beginners-guide-pwa-2025</loc>
+        <lastmod>2025-01-02T00:54:46.461Z</lastmod>
+	</url>
+    <url>
+		<loc>https://www.razarinfo.online/blogs/generative-ai-game-development</loc>
+		<lastmod>2025-01-02T00:54:46.461Z</lastmod>
+	</url>
+    <url>
+		<loc>blogs/tech-giants-innovations-2024</loc>
+		<lastmod>2025-01-02T00:54:46.461Z</lastmod>
+	</url>
 </urlset>
