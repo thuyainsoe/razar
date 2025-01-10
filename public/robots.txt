@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.dailytopics.info/sitemap-index.xml
+Sitemap: https://dailytopics.info/sitemap-index.xml
