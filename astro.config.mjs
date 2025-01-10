@@ -23,7 +23,7 @@ export default defineConfig({
   ],
   output: "server",
   adapter: vercel(),
-  site: "https://www.razarinfo.online",
+  site: "https://dailytopics.info",
   env: {
     schema: {
       PUBLIC_EMAILJS_USER_ID: envField.string({
